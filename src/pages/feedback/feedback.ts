@@ -27,18 +27,18 @@ export class FeedbackPage {
     this.ord=this.navParams.get("order");
   }
   finishOrder(){
-   // if(this.rate){
-   //    this.loader.present();
-   //    this.order.finishOrder(this.ord.saleid,this.rate,this.comment )
-   //    .then(res=>{
-   //      this.navCtrl.popToRoot();
-   //      this.loader.dismiss();
-   //    })
-   //    .catch(err=>{
-   //      this.navCtrl.popToRoot();
-   //      this.loader.dismiss();
-   //    })
-   //  }
+   if(this.rate){
+      this.loader.present();
+      this.order.finishOrder(this.ord.id_sale,this.rate,this.comment)
+      .then(res=>{
+        this.navCtrl.popToRoot();
+        this.loader.dismiss();
+      })
+      .catch(err=>{
+        this.navCtrl.popToRoot();
+        this.loader.dismiss();
+      })
+    }
   }
 
 }

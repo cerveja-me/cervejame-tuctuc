@@ -51,7 +51,7 @@
   <div class="address">
       <span class="address-box__status" *ngIf="ord && ord.btselect=='concluir'">ENTREGA A CAMINHO</span>
     <div class="address-box">
-        <p class="address-box__text"  *ngIf="ord" (click)="startDelivery()">{{ord.address}}</p>
+        <p class="address-box__text"  *ngIf="ord" (click)="startDelivery()">{{ord.street}}, {{ord.num}} {{ord.complement?', comp:'+ord.complement:''}}</p>
         <button class="button-route" *ngIf="ord" (click)="startDelivery()"><span class="icon-route"></span>TRAÇAR ROTA</button>
         <button  class="button-go" *ngIf="ord && ord.btselect=='entregar'" (click)="startDelivery()"></button>
         <button class="button-go finish-icon" *ngIf="ord && ord.btselect=='concluir'" (click)="finish()"></button>
