@@ -30,7 +30,7 @@ import { OrderProvider } from '../providers/order/order';
 
 class AppVersionMock extends AppVersion {
   constructor(){super();}
-  getVersionNumber(){return new Promise((resolve, reject) => {resolve( '3.0.5');})}
+  getVersionNumber(){return new Promise((resolve, reject) => {resolve( '2.0.5');})}
 }
 class KeyboardMock extends Keyboard {
 

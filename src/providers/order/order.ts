@@ -1,23 +1,26 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
+import { NetworkProvider } from '../network/network';
 
 @Injectable()
 export class OrderProvider {
 
-  constructor(public http: HttpClient) {
-    console.log('Hello OrderProvider Provider');
+  constructor(
+    private network: NetworkProvider,
+
+  ) {
   }
 
   getOrders(){
     return new Promise((resolve, reject) => {
-      // let u=this.user.getLoggedUser();
-      // this.device.get(this.device.API+this.device.ORDERS+u['id'])
-      // .then((res)=>{
-      //   let orders = res.json();
-      //   orders=orders.map(this.convertOrder);
-      //   resolve(orders);
-      // })
+      this.network.get(this.network.c.ACTION)
+      .then(orders=>{
+        resolve(orders)
+      })
+      .catch( e =>{
+        reject(e)
+        // console.log(e);
+      })
     })
   }
 
