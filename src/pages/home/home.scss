@@ -1,3 +1,209 @@
 page-home {
 
 }
+
+@keyframes alert {
+  0% { opacity: 0.5 }
+  50% { opacity: 1 }
+  100% { opacity: 0.5 }
+}
+
+.card {
+  border-radius: 5px;
+  position: relative;
+  background: white;
+  padding: 0 15px 15px;
+  margin-bottom: 20px;
+  box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.3);
+
+  &__status {
+    @extend .font-bold;
+    @include border-radius(10px);
+
+    color: white;
+    background: #bbb;
+    padding: 5px 10px;
+    font-size: 14px;
+    text-align: center;
+    display: inline-block;
+    border: 2px solid white;
+    position: absolute;
+    right: 3px;
+    top: 6px;
+
+    &.critical {
+      background: #D84040;
+      animation: alert 1s ease-out 0s infinite normal;
+      animation-fill-mode: both;
+    }
+
+    &.alert {
+      background: #D5A86C;
+      animation: alert 1s ease-out 0s infinite normal;
+      animation-fill-mode: both;
+    }
+  }
+
+  &__details {
+    padding: 10px 15px;
+
+    border-bottom: 1px solid #ddd;
+    margin: 0 -15px;
+    box-sizing: border-box;
+  }
+
+  &__user,
+  &__payment {
+    vertical-align: middle;
+    display: inline-block;
+    font-size: 14px;
+    color: #563316;
+  }
+
+  &__user {
+    @extend .font-regular;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 14px;
+  }
+
+  &__payment {
+    @extend .font-bold;
+
+    text-align: right;
+    display: inline-block;
+    vertical-align: middle;
+    text-transform: uppercase;
+    font-size: 11px;
+  }
+
+  &__info {
+    color: #563316;
+    padding: 15px 0 0;
+
+    &__order {
+      @extend .font-bold;
+
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 3%;
+      font-size: 16px;
+      text-transform: uppercase;
+      border-right: 1px solid #ddd;
+      text-align: center;
+      padding-right: 15px;
+      width: 55%;
+      color: $color-secondary;
+      text-align: left;
+
+      span {
+        margin-top: 15px;
+      }
+
+      small {
+        @extend .font-regular;
+
+        font-size: 12px;
+        text-transform: uppercase;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        width: 60%;
+        display: inline-block;
+      }
+    }
+
+    &__button {
+      border-radius: 10px;
+
+      border: 2px dotted #563316;
+      width: 40%;
+      display: inline-block;
+      vertical-align: middle;
+      padding: 7px 14px;
+      background: none;
+
+      &.active {
+        background: #83DD7F;
+      }
+    }
+
+    &__image {
+      @include border-radius(10px);
+      width: 37px;
+      height: 37px;
+      float: left;
+      display: inline-block;
+      margin: 0;
+      background: #eee;
+      text-align: center;
+      overflow: hidden;
+      margin-right: 10px;
+
+      img-loader {
+        height: 120% !important;
+      }
+    }
+
+    small {
+      display: block;
+    }
+  }
+
+}
+
+.icon-view {
+  background-image: url(../assets/icon/icon-view.svg);
+  background-size: cover;
+  width: 29px;
+  height: 20px;
+  display: inline-block;
+}
+
+.icon-go {
+  background-image: url(../assets/icon/icon-go.svg);
+  background-size: cover;
+  width: 30px;
+  height: 34px;
+  display: inline-block;
+}
+
+.icon-onway {
+  background-image: url(../assets/icon/icon-onway.svg);
+  background-size: cover;
+  width: 29px;
+  height: 34px;
+  display: inline-block;
+}
+
+.icon-money {
+  background-image: url(../assets/icon/icon-money.svg);
+  background-size: cover;
+  width: 35px;
+  height: 19px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 7px;
+}
+
+.icon-card {
+  background-image: url(../assets/icon/icon-card.svg);
+  background-size: cover;
+  width: 28px;
+  height: 20px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 7px;
+}
+
+.icon-user {
+  background-image: url(../assets/icon/icon-user.svg);
+  background-size: cover;
+  width: 17px;
+  height: 18px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10px;
+}

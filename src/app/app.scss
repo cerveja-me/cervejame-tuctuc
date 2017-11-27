@@ -1,4 +1,4 @@
-// http://ionicframework.com/docs/theming/
+// http://ionicframework.com/docs/v2/theming/
 
 
 // App Global Sass
@@ -14,3 +14,206 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+ion-footer {
+  z-index: 12;
+
+  &:before {
+    display: none;
+  }
+}
+
+.toolbar {
+
+  .toolbar-background {
+    background: #563316;
+    border-bottom: 2px solid white;
+  }
+
+  &-title {
+    @extend .font-bold;
+
+    color: white;
+    text-transform: uppercase;
+  }
+}
+
+.background-gray {
+  background: #eee;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Montserrat-Regular'), url(../assets/fonts/montserrat.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+/* latin */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Montserrat-Bold'), url(../assets/fonts/montserrat-bold.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+
+.font-bold {
+  font-family: 'Montserrat';
+  font-weight: 700;
+}
+
+.font-regular {
+  font-family: 'Montserrat';
+  font-weight: 400;
+}
+
+.back-button-icon {
+  background-image: url(../assets/icon/icon-back.svg);
+  background-size: cover;
+  width: 26px;
+  height: 26px;
+  display: inline-block;
+
+  &:before {
+    content: '';
+  }
+}
+
+.ion-md-menu:before,
+.ion-ios-menu:before
+{
+  color: white;
+}
+
+.back-button-ios {
+  margin-top: 16px;
+}
+
+.back-button.show-back-button {
+    display: block;
+
+    .back-button-icon {
+        background-image: url(../assets/icon/icon-back.svg);
+        background-size: cover;
+        width: 13px;
+        height: 22px;
+        min-width: 13px;
+        display: inline-block;
+
+        &:before {
+            content: '';
+        }
+    }
+}
+
+.back-button-text {
+    display: none;
+}
+
+.header {
+    position: relative;
+    text-align: center;
+
+    &.header-md {
+      height: 60px;
+    }
+
+    &.header-ios {
+      height: 80px;
+    }
+
+    &:after {
+        content: '';
+        position: absolute;
+        height: 1px;
+        background: #583318;
+        width: 85%;
+        top: 100%;
+        left: 7.5%;
+    }
+
+    .toolbar {
+        min-height: 60px;
+        height: 100%;
+
+        &-ios {
+          padding: 0 15px;
+        }
+
+        .toolbar-background {
+            background: transparent;
+            border: none;
+        }
+    }
+
+    &.header-dark {
+
+      .toolbar {
+
+        .toolbar-background {
+          background: $color-secondary;
+        }
+
+        .title {
+
+          &.title-ios {
+            padding: 0 40px 1px;
+            text-align: center;
+
+            .toolbar-title-md {
+                margin-top: 9px;
+            }
+          }
+
+          &.title-md {
+            padding: 0;
+            text-align: left;
+
+            .toolbar-title-md {
+                margin: 0;
+            }
+          }
+
+        }
+
+        .toolbar-title {
+            @extend .font-bold;
+
+            color: white;
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+      }
+    }
+
+    &.header-dark:after {
+        display: none;
+    }
+}
+
+ion-navbar {
+    position: absolute;
+    top: 0;
+}
+
+.menu-inner {
+    .content {
+      background: $color-secondary;
+    }
+
+    .list {
+
+      .item {
+        @extend .font-bold;
+
+        color: white;
+        background: none;
+        text-transform: uppercase;
+
+        .item-inner {
+          padding: 15px 0;
+        }
+      }
+    }
+}

@@ -7,7 +7,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 // import { OneSignal } from '@ionic-native/onesignal';
 import { Device } from '@ionic-native/device';
-// import { IonicImageLoader } from 'ionic-image-loader';
+import { IonicImageLoader } from 'ionic-image-loader';
 import { IonicStorageModule } from '@ionic/storage';
 import { AppVersion } from '@ionic-native/app-version';
 // import { Vibration } from '@ionic-native/vibration';
@@ -29,8 +29,8 @@ import { NetworkProvider } from '../providers/network/network';
 import { OrderProvider } from '../providers/order/order';
 
 class AppVersionMock extends AppVersion {
-constructor(){super();}
-getVersionNumber(){return new Promise((resolve, reject) => {resolve( '3.0.5');})}
+  constructor(){super();}
+  getVersionNumber(){return new Promise((resolve, reject) => {resolve( '3.0.5');})}
 }
 class KeyboardMock extends Keyboard {
 
@@ -65,6 +65,7 @@ class SplashScreenMock extends SplashScreen{
     HttpClientModule,
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    IonicImageLoader.forRoot(),
     IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
