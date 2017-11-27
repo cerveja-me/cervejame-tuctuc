@@ -1,0 +1,28 @@
+<ion-header class="header-dark">
+
+  <ion-navbar>
+    <ion-title>TROCO NO DINHEIRO</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="change background-gray">
+  <div *ngIf="ord" class="change__total-box">
+    <span class="change__title">TOTAL DA COMPRA</span>
+    <h1 class="change__total-box__value">
+    R$ {{ord.value}}
+  </h1>
+
+  </div>
+  <div class="card">
+    <span class="change__title">OPÇÕES DE TROCO</span>
+    <ul class="change__list">
+      <li class="change__list-item" *ngFor="let i of changes">
+        <span class="change__option">R$ {{i.valor}}</span>
+        <span class="change__change">R$ {{i.change}}</span>
+      </li>
+    </ul>
+  </div>
+
+</ion-content>

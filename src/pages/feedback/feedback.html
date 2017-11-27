@@ -1,0 +1,30 @@
+<ion-header class="header-dark">
+
+  <ion-navbar>
+    <ion-title>Finalizar Entrega</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="">
+
+ <div class="feedback">
+
+  <span class="feedback__text">Avalie o cliente:</span>
+
+  <button class="feedback__star" [ngClass]="rate>=1?'active':''" (click)="rate=1"></button>
+  <button class="feedback__star" [ngClass]="rate>=2?'active':''" (click)="rate=2"></button>
+  <button class="feedback__star" [ngClass]="rate>=3?'active':''" (click)="rate=3"></button>
+  <button class="feedback__star" [ngClass]="rate>=4?'active':''" (click)="rate=4"></button>
+  <button class="feedback__star" [ngClass]="rate>=5?'active':''" (click)="rate=5"></button>
+
+  <div class="comment__box" *ngIf="rate && rate<4">
+    <input name="login" class="comment__box__input" placeholder="Deixe seu comentário" type="text" required="true" *ngIf="rate" [(ngModel)]="comment"/>
+  </div>
+
+  <button [ngClass]="rate ? 'btn-finish ':'btn-finish btn-disabled'" (click)="finishOrder()">Finalizar</button>
+
+</div>
+
+</ion-content>

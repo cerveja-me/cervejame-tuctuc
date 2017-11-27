@@ -1,0 +1,90 @@
+page-feedback {
+
+  .btn-finish {
+    @include border-radius(10px);
+    @extend .font-bold;
+
+    background: #D84040;
+    width: 70%;
+    color: white;
+    border: 2px solid $color-secondary;
+    font-size: 24px;
+    padding: 20px 0;
+    text-transform: uppercase;
+
+    &:after {
+      display: none;
+    }
+  }
+
+  .feedback {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -150px;
+    margin-top: -210px;
+    height: 420px;
+    width: 300px;
+    padding: 75px 0;
+
+    &__text {
+      @extend .font-bold;
+
+      color: #573317;
+      font-size: 20px;
+      position: relative;
+      z-index: 2;
+      padding: 0 57px;
+      display: block;
+      margin: 20px 0;
+    }
+
+    &__star {
+      background-image: url(../assets/icon/icon-star.svg);
+      background-size: cover;
+      width: 36px;
+      height: 35px;
+      display: inline-block;
+      margin: 20px 5px 35px;
+      background-color: transparent;
+
+      &.active {
+        background-image: url(../assets/icon/icon-star-active.svg);
+        background-size: cover;
+        width: 36px;
+        height: 35px;
+        display: inline-block;
+        background-color: transparent;
+      }
+    }
+  }
+  .comment {
+
+    &__box {
+
+      margin-bottom: 20px;
+      padding: 0 10px;
+      width: 100%;
+      position: relative;
+
+      &__input {
+        @extend .font-regular;
+
+        border-radius: 10px;
+
+        display: block;
+        background: white;
+        color: #583318;
+        border: 2px solid #583318;
+        height: 60px;
+        width: 100%;
+        padding: 18px 15px 18px 15px;
+        box-shadow: 0 5px 10px 0 rgba(0,0,0,.5);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+  }
+}

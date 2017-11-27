@@ -1,0 +1,98 @@
+page-modal-change {
+
+  .card {
+    padding: 15px;
+
+    .change__title {
+      margin-bottom: 15px;
+    }
+  }
+
+  .change {
+
+    &__title {
+      @extend .font-regular;
+
+      color: $color-secondary;
+      font-size: 12px;
+      text-transform: uppercase;
+      text-align: center;
+      display: block;
+    }
+
+    &__list {
+      padding: 0;
+      margin: 0;
+      list-style-type: none;
+    }
+
+    &__list-item {
+      position: relative;
+      display: block;
+      margin-bottom: 10px;
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+
+    &__total-box {
+      padding: 20px 0;
+      background: $color-success;
+      text-align: center;
+      margin: -18px -18px 15px;
+
+      &__value {
+        @extend .font-regular;
+
+        color: $color-secondary;
+        font-size: 42px;
+        margin: 5px 0 0;
+      }
+    }
+
+    &__option {
+        @include border-radius(5px);
+        @extend .font-bold;
+
+        display: inline-block;
+        width: 44%;
+        background: $color-secondary;
+        border: 2px solid $color-secondary;
+        font-size: 18px;
+        color: white;
+        text-align: center;
+        padding: 10px 0;
+        margin-right: 10%;
+        box-sizing: border-box;
+    }
+
+    &__change {
+        @include border-radius(5px);
+        @extend .font-regular;
+
+        display: inline-block;
+        width: 44%;
+        border: 2px solid $color-secondary;
+        font-size: 18px;
+        color: $color-secondary;
+        text-align: center;
+        padding: 10px 0;
+        box-sizing: border-box;
+
+        &:before {
+          content: '';
+          background-image: url(../assets/icon/icon-arrow.svg);
+          background-size: cover;
+          width: 8px;
+          height: 15px;
+          display: inline-block;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          margin-left: -4px;
+          margin-top: -7.5px;
+        }
+    }
+  }
+}

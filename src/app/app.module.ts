@@ -11,22 +11,24 @@ import { IonicImageLoader } from 'ionic-image-loader';
 import { IonicStorageModule } from '@ionic/storage';
 import { AppVersion } from '@ionic-native/app-version';
 // import { Vibration } from '@ionic-native/vibration';
-// import { CallNumber } from '@ionic-native/call-number';
 // import { NativeRingtones } from '@ionic-native/native-ringtones';
 // import { HyperTrack } from '@ionic-native/hyper-track';
 import { Keyboard } from '@ionic-native/keyboard';
-
+import { CallNumber } from '@ionic-native/call-number';
+import { GoogleMaps, GoogleMap, GoogleMapsEvent, LatLng, CameraPosition, MarkerOptions, Marker} from '@ionic-native/google-maps';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { LoginPage } from '../pages/login/login';
+import { DetailsPage } from '../pages/details/details';
 
 import { ConstantsProvider } from '../providers/constants/constants';
 import { UserProvider } from '../providers/user/user';
 import { DeviceProvider } from '../providers/device/device';
 import { NetworkProvider } from '../providers/network/network';
 import { OrderProvider } from '../providers/order/order';
+import { ProductsProvider } from '../providers/products/products';
 
 class AppVersionMock extends AppVersion {
   constructor(){super();}
@@ -59,7 +61,8 @@ class SplashScreenMock extends SplashScreen{
     MyApp,
     HomePage,
     ListPage,
-    LoginPage
+    LoginPage,
+    DetailsPage
   ],
   imports: [
     HttpClientModule,
@@ -73,11 +76,13 @@ class SplashScreenMock extends SplashScreen{
     MyApp,
     HomePage,
     ListPage,
-    LoginPage
+    LoginPage,
+    DetailsPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    CallNumber,
 
     { provide: AppVersion, useClass: AppVersionMock },
     { provide: SplashScreen, useClass:SplashScreenMock },
@@ -89,7 +94,8 @@ class SplashScreenMock extends SplashScreen{
     UserProvider,
     DeviceProvider,
     NetworkProvider,
-    OrderProvider
+    OrderProvider,
+    ProductsProvider
   ]
 })
 export class AppModule {}

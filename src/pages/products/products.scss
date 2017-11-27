@@ -1,0 +1,21 @@
+page-products {
+
+  ion-thumbnail {
+
+    img-loader {
+
+      height: 80px !important;
+    }
+  }
+
+  .toggle-ios.toggle-checked .toggle-icon,
+  .toggle-md.toggle-checked .toggle-inner {
+    background: #83DD7F;
+  }
+
+  .toggle-md.toggle-checked .toggle-icon {
+    background: lighten(#83DD7F, 20%);
+
+  }
+
+}

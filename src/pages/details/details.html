@@ -1,0 +1,61 @@
+<ion-header class="header-dark">
+
+  <ion-navbar>
+
+  </ion-navbar>
+  <figure class="card__user__photo"></figure>
+     <h2 *ngIf="ord" [ngClass]="ord.cardstatus"><span class="icon-clock"></span>{{ord.minutes}} min</h2>
+</ion-header>
+
+<ion-content >
+ <div class="card" *ngIf="ord">
+
+
+   <div class="card__info">
+     <div class="card__user">
+
+         <span class="card__user__btn btn-call" (click)="callToClient()"> <span class="icon-phone"></span>
+         <!-- {{ord.phone}} -->
+       </span>
+
+       <span class="card__user__info">{{ord.name.split(' ')[0]}}</span>
+       <button [ngClass]="ord && ord.btselect=='concluir'?'card__user__btn btn-message':'card__user__btn btn-message btn-disabled'" (click)="arrivedOnOrder()">Cheguei!</button>
+     </div>
+
+    </div>
+    <div class="card__details">
+      <span class="card__info__order">
+
+       <span>
+         <figure class="card__info__image">
+           <img-loader [src]="'http://cerveja.me/img/mobile/'+ord.img"></img-loader>
+         </figure>
+
+         {{ord.amount}} Caixas <small>{{ord.proname}}</small></span>
+       </span>
+
+       <span class="total__pricebox" (click)="openChangeInformation()">
+         <span class="total__pricebox--currency"></span>R$ {{ord.value}}<small>{{ord.payment}}</small>
+         <span class="icon-arrow"></span>
+       </span>
+
+    </div>
+  </div>
+  <div #map id="map" class="map">
+
+
+  </div>
+
+</ion-content>
+<ion-footer align-title="left" class="bar-assertive">
+  <div class="address">
+      <span class="address-box__status" *ngIf="ord && ord.btselect=='concluir'">ENTREGA A CAMINHO</span>
+    <div class="address-box">
+        <p class="address-box__text"  *ngIf="ord" (click)="startDelivery()">{{ord.address}}</p>
+        <button class="button-route" *ngIf="ord" (click)="startDelivery()"><span class="icon-route"></span>TRAÇAR ROTA</button>
+        <button  class="button-go" *ngIf="ord && ord.btselect=='entregar'" (click)="startDelivery()"></button>
+        <button class="button-go finish-icon" *ngIf="ord && ord.btselect=='concluir'" (click)="finish()"></button>
+    </div>
+  </div>
+
+</ion-footer>
