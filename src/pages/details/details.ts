@@ -1,22 +1,14 @@
 import { Component,ViewChild, ElementRef } from '@angular/core';
 import { NavController, NavParams,ModalController,ViewController,AlertController  } from 'ionic-angular';
 import { LaunchNavigator, LaunchNavigatorOptions } from '@ionic-native/launch-navigator';
-import {
-  GoogleMaps,
-  GoogleMap,
-  GoogleMapsEvent,
-  LatLng,
-  CameraPosition,
-  MarkerOptions,
-  Marker
-} from '@ionic-native/google-maps';
+import {  GoogleMaps, GoogleMap,  GoogleMapsEvent,  LatLng,  CameraPosition,  MarkerOptions,  Marker} from '@ionic-native/google-maps';
 import { CallNumber } from '@ionic-native/call-number';
 
 
 import { OrderProvider } from '../../providers/order/order';
 import { DeviceProvider } from '../../providers/device/device';
 
-import { FeedbackPage } from '../feedback/feedback';
+// import { FeedbackPage } from '../feedback/feedback';
 import { ModalChangePage } from '../modal-change/modal-change';
 
 @Component({
@@ -103,14 +95,14 @@ export class DetailsPage {
 
   startDelivery(){
     //abrir o aplicativo preferencia de mapas
-    this.openNavigation();
+    // this.openNavigation();
     this.order.driveToOrder(this.ord);
-    this.ord.onWayAt=Date();
-    if(this.ord.onWayAt!=null){
-      this.ord.btselect='concluir';
-    }else {
-      this.ord.btselect='entregar';
-    }
+    // this.ord.onWayAt=Date();
+    // if(this.ord.onWayAt!=null){
+    //   this.ord.btselect='concluir';
+    // }else {
+    //   this.ord.btselect='entregar';
+    // }
   }
   openNavigation(){
     // console.log('rota',this.ord.address.split(', complemento')[0]);

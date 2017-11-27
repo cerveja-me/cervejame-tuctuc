@@ -25,12 +25,28 @@ export class OrderProvider {
   }
 
   aceptOrder(o){
+    const a={
+      id_sale:o.id_sale,
+      action:1
+    }
+    return this.createAction(a);
+  }
+  driveToOrder(o){
+    const a={
+      id_sale:o.id_sale,
+      action:2
+    }
+    return this.createAction(a);
+  }
+
+  createAction(o){
+    console.log('action',o);
     return new Promise((resolve, reject) => {
       // this.device.stopRingTone();
-      // this.device.get(this.device.API+this.device.ACCEPT_ORDER+o.saleid)
-      // .then((res)=>{
-      //   resolve(res.json());
-      // })
+      this.network.post(this.network.c.ACTION,o)
+      .then((res)=>{
+        resolve(res);
+      })
     })
   }
 }

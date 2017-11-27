@@ -16,12 +16,14 @@ import { AppVersion } from '@ionic-native/app-version';
 import { Keyboard } from '@ionic-native/keyboard';
 import { CallNumber } from '@ionic-native/call-number';
 import { GoogleMaps, GoogleMap, GoogleMapsEvent, LatLng, CameraPosition, MarkerOptions, Marker} from '@ionic-native/google-maps';
+import { LaunchNavigator } from '@ionic-native/launch-navigator';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { LoginPage } from '../pages/login/login';
 import { DetailsPage } from '../pages/details/details';
+import { FeedbackPage } from '../pages/feedback/feedback';
 
 import { ConstantsProvider } from '../providers/constants/constants';
 import { UserProvider } from '../providers/user/user';
@@ -62,7 +64,8 @@ class SplashScreenMock extends SplashScreen{
     HomePage,
     ListPage,
     LoginPage,
-    DetailsPage
+    DetailsPage,
+    FeedbackPage
   ],
   imports: [
     HttpClientModule,
@@ -77,13 +80,20 @@ class SplashScreenMock extends SplashScreen{
     HomePage,
     ListPage,
     LoginPage,
-    DetailsPage
+    DetailsPage,
+    FeedbackPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     CallNumber,
-
+    LaunchNavigator,
+    Device,
+    GoogleMaps,
+    // Vibration,
+    CallNumber,
+    // NativeRingtones,
+    // HyperTrack,
     { provide: AppVersion, useClass: AppVersionMock },
     { provide: SplashScreen, useClass:SplashScreenMock },
     { provide: Device, useClass: DeviceMock },

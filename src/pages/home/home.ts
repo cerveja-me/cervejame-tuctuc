@@ -5,7 +5,7 @@ import { IonicImageLoader } from 'ionic-image-loader';
 import { DeviceProvider } from '../../providers/device/device';
 import { OrderProvider } from '../../providers/order/order';
 
-// import { DetailsPage } from '../details/details';
+import { DetailsPage } from '../details/details';
 
 @Component({
   selector: 'page-home',
@@ -63,7 +63,7 @@ export class HomePage {
       this.order.aceptOrder(o);
     }
 
-    // this.navCtrl.push(DetailsPage,{order:o})
+    this.navCtrl.push(DetailsPage,{order:o})
   }
 
 }

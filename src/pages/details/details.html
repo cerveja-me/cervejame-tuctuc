@@ -4,7 +4,7 @@
 
   </ion-navbar>
   <figure class="card__user__photo"></figure>
-     <h2 *ngIf="ord" [ngClass]="ord.cardstatus"><span class="icon-clock"></span>{{ord.minutes}} min</h2>
+     <h2 *ngIf="ord" [ngClass]="ord.elapsed>25?ord.elapsed>45?'critical':'alert':''"><span class="icon-clock"></span>{{ord.elaspted}} min</h2>
 </ion-header>
 
 <ion-content >
@@ -18,7 +18,7 @@
          <!-- {{ord.phone}} -->
        </span>
 
-       <span class="card__user__info">{{ord.name.split(' ')[0]}}</span>
+       <span class="card__user__info">{{ord.name}}</span>
        <button [ngClass]="ord && ord.btselect=='concluir'?'card__user__btn btn-message':'card__user__btn btn-message btn-disabled'" (click)="arrivedOnOrder()">Cheguei!</button>
      </div>
 
@@ -31,11 +31,11 @@
            <img-loader [src]="'http://cerveja.me/img/mobile/'+ord.img"></img-loader>
          </figure>
 
-         {{ord.amount}} Caixas <small>{{ord.proname}}</small></span>
+         {{ord.amount}} Caixas <small>{{ord.product}}</small></span>
        </span>
 
        <span class="total__pricebox" (click)="openChangeInformation()">
-         <span class="total__pricebox--currency"></span>R$ {{ord.value}}<small>{{ord.payment}}</small>
+         <span class="total__pricebox--currency"></span>R$ {{ord.payment_value}}<small>{{ord.payment_type==1?'dinheiro':'cartão'}}</small>
          <span class="icon-arrow"></span>
        </span>
 
