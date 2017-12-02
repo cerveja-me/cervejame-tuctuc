@@ -6,7 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { BackgroundMode } from '@ionic-native/background-mode';
-// import { OneSignal } from '@ionic-native/onesignal';
+import { OneSignal } from '@ionic-native/onesignal';
 import { Device } from '@ionic-native/device';
 import { IonicImageLoader } from 'ionic-image-loader';
 import { IonicStorageModule } from '@ionic/storage';
@@ -102,6 +102,7 @@ class SplashScreenMock extends SplashScreen{
     Vibration,
     CallNumber,
     NativeRingtones,
+    OneSignal,
     // HyperTrack,
     // { provide: AppVersion, useClass: AppVersionMock },
     // { provide: SplashScreen, useClass:SplashScreenMock },
