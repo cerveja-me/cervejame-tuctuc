@@ -28,6 +28,7 @@ export class HomePage {
     public device:DeviceProvider) {
 
     this.events.subscribe('neworders', data=>{
+      console.log('abriu o evento buscar');
       this.findOrders();
     });
 
@@ -61,7 +62,7 @@ export class HomePage {
     if(o.aceptedAt==null){
       this.order.aceptOrder(o);
     }
-
+    this.device.stopRingTone();
     this.navCtrl.push(DetailsPage,{order:o})
   }
 

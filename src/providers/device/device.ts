@@ -6,12 +6,14 @@ import { AppVersion } from '@ionic-native/app-version';
 // import { OneSignal } from '@ionic-native/onesignal';
 import { NetworkProvider } from '../network/network';
 import { ConstantsProvider } from '../constants/constants';
+import { Vibration } from '@ionic-native/vibration';
+// import { NativeRingtones } from '@ionic-native/native-ringtones';
 
 /*
-  Generated class for the DeviceProvider provider.
+Generated class for the DeviceProvider provider.
 
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
+See https://angular.io/guide/dependency-injection for more info on providers
+and Angular DI.
 */
 @Injectable()
 export class DeviceProvider {
@@ -21,6 +23,7 @@ export class DeviceProvider {
     private platform:Platform,
     private device:Device,
     private appVersion:AppVersion,
+    private vibration: Vibration,
     private net:NetworkProvider,
     public c:ConstantsProvider,
     // private oneSignal:OneSignal,
@@ -75,5 +78,31 @@ export class DeviceProvider {
         })
       }
     })
+  }
+
+  vibrate:any;
+  playRingTone(){
+    this.vibrate= setInterval(() =>{
+      this.vibration.vibrate(500);
+      setTimeout(function(){
+        this.vibration.vibrate(0);
+      },500)
+
+    },1000);
+
+
+    // this.ringtones.playRingtone(this.rings[this.pos].Url);
+
+    // this.audio.loop('uniqueId2')
+    // .then(r=>{
+    //   console.log('res->',r);
+    // },
+    // err=>{
+    //   console.log('eeror->',err);
+    // });
+  }
+  stopRingTone(){
+    this.vibration.vibrate(0);
+    clearInterval(this.vibrate);
   }
 }

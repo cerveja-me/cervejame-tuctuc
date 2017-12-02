@@ -5,12 +5,13 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { HttpClientModule } from '@angular/common/http';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { BackgroundMode } from '@ionic-native/background-mode';
 // import { OneSignal } from '@ionic-native/onesignal';
 import { Device } from '@ionic-native/device';
 import { IonicImageLoader } from 'ionic-image-loader';
 import { IonicStorageModule } from '@ionic/storage';
 import { AppVersion } from '@ionic-native/app-version';
-// import { Vibration } from '@ionic-native/vibration';
+import { Vibration } from '@ionic-native/vibration';
 // import { NativeRingtones } from '@ionic-native/native-ringtones';
 // import { HyperTrack } from '@ionic-native/hyper-track';
 import { Keyboard } from '@ionic-native/keyboard';
@@ -97,7 +98,8 @@ class SplashScreenMock extends SplashScreen{
     LaunchNavigator,
     Device,
     GoogleMaps,
-    // Vibration,
+    BackgroundMode,
+    Vibration,
     CallNumber,
     // NativeRingtones,
     // HyperTrack,

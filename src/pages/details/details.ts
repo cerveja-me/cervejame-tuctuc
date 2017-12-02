@@ -50,27 +50,21 @@ export class DetailsPage {
   }
 
   loadMap() {
-    // let element: HTMLElement = document.getElementById('map');
-    // let map: GoogleMap = this.googleMaps.create(element);
-    // map.one(GoogleMapsEvent.MAP_READY).then(
-    //   () => {
-    //     // create LatLng object
-    //     let ionic: LatLng = new LatLng(this.ord.lat, this.ord.lng);
-    //
-    //     // create CameraPosition
-    //     let position: CameraPosition = {
-    //       target: ionic,
-    //       zoom: 15,
-    //       tilt: 30
-    //     };
-    //     map.moveCamera(position);
-    //     let markerOptions: MarkerOptions = {
-    //       position: ionic
-    //     };
-    //     map.addMarker(markerOptions);
-    //   }
-    //   );
-    //   map.setClickable(false);
+    let element: HTMLElement = document.getElementById('map');
+    let map: GoogleMap = this.googleMaps.create(element);
+    map.one(GoogleMapsEvent.MAP_READY).then(
+      () => {
+        // create LatLng object
+        let ionic: LatLng = new LatLng(this.ord.position_maps.x,this.ord.position_maps.y);
+
+        map.moveCamera({target: ionic,zoom: 15,tilt: 30});
+        let markerOptions: MarkerOptions = {
+          position: ionic
+        };
+        map.addMarker(markerOptions);
+      }
+      );
+      map.setClickable(false);
 
 
   }
