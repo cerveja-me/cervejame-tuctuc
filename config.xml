@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="io.ionic.starter" version="1.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-  <name>Cerveja.me Entregador</name>
-  <description>Aplicativo de entregas.</description>
-  <author email="contato@cerveja.me" href="https://cerveja.me/">Cerveja.me Team</author>
+    <name>Cerveja.me Entregador</name>
+    <description>Aplicativo de entregas.</description>
+    <author email="contato@cerveja.me" href="https://cerveja.me/">Cerveja.me Team</author>
     <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
@@ -94,4 +94,5 @@
     <plugin name="cordova-plugin-statusbar" spec="^2.3.0" />
     <plugin name="cordova-plugin-background-mode" spec="^0.7.2" />
     <plugin name="cordova-plugin-vibration" spec="^2.1.6" />
+    <plugin name="cordova-plugin-native-ringtones" spec="^0.2.5" />
 </widget>

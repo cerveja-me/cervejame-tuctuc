@@ -12,7 +12,7 @@ import { IonicImageLoader } from 'ionic-image-loader';
 import { IonicStorageModule } from '@ionic/storage';
 import { AppVersion } from '@ionic-native/app-version';
 import { Vibration } from '@ionic-native/vibration';
-// import { NativeRingtones } from '@ionic-native/native-ringtones';
+import { NativeRingtones } from '@ionic-native/native-ringtones';
 // import { HyperTrack } from '@ionic-native/hyper-track';
 import { Keyboard } from '@ionic-native/keyboard';
 import { CallNumber } from '@ionic-native/call-number';
@@ -101,7 +101,7 @@ class SplashScreenMock extends SplashScreen{
     BackgroundMode,
     Vibration,
     CallNumber,
-    // NativeRingtones,
+    NativeRingtones,
     // HyperTrack,
     // { provide: AppVersion, useClass: AppVersionMock },
     // { provide: SplashScreen, useClass:SplashScreenMock },

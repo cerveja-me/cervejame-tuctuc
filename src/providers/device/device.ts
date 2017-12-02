@@ -7,14 +7,9 @@ import { AppVersion } from '@ionic-native/app-version';
 import { NetworkProvider } from '../network/network';
 import { ConstantsProvider } from '../constants/constants';
 import { Vibration } from '@ionic-native/vibration';
-// import { NativeRingtones } from '@ionic-native/native-ringtones';
+import { NativeRingtones } from '@ionic-native/native-ringtones';
 
-/*
-Generated class for the DeviceProvider provider.
 
-See https://angular.io/guide/dependency-injection for more info on providers
-and Angular DI.
-*/
 @Injectable()
 export class DeviceProvider {
   dev:any;
@@ -28,9 +23,12 @@ export class DeviceProvider {
     public c:ConstantsProvider,
     // private oneSignal:OneSignal,
     private alertCtrl:AlertController,
-    private events:Events
+    private events:Events,
+    private ringtones: NativeRingtones
+
   ) {
     this.createDevice('empty');
+    this.prepareAudio();
 
     if(this.platform.is('cordova')){
       // UXCam.startWithKey("be70a1dceee9857");//contas@cerveja.me
@@ -64,6 +62,7 @@ export class DeviceProvider {
       })
     })
   }
+
   getDevice(){
     return new Promise((resolve, reject)=> {
       if(this.dev){
@@ -84,23 +83,24 @@ export class DeviceProvider {
   playRingTone(){
     this.vibrate= setInterval(() =>{
       this.vibration.vibrate(500);
+      this.ringtones.playRingtone(this.rings[this.pos].Url);
       setTimeout(function(){
         this.vibration.vibrate(0);
       },500)
 
     },1000);
-
-
-    // this.ringtones.playRingtone(this.rings[this.pos].Url);
-
-    // this.audio.loop('uniqueId2')
-    // .then(r=>{
-    //   console.log('res->',r);
-    // },
-    // err=>{
-    //   console.log('eeror->',err);
-    // });
   }
+  
+  rings:any;
+  pos:any;
+  prepareAudio(){
+    this.ringtones.getRingtone()
+    .then((ringtones) => {
+      this.pos=Math.floor(Math.random() * ringtones.length);
+      this.rings=ringtones;
+    });
+  }
+
   stopRingTone(){
     this.vibration.vibrate(0);
     clearInterval(this.vibrate);
