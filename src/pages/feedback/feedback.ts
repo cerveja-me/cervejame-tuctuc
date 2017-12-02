@@ -31,11 +31,11 @@ export class FeedbackPage {
       this.loader.present();
       this.order.finishOrder(this.ord.id_sale,this.rate,this.comment)
       .then(res=>{
-        this.navCtrl.popToRoot();
+        this.navCtrl.setRoot(HomePage);
         this.loader.dismiss();
       })
       .catch(err=>{
-        this.navCtrl.popToRoot();
+        this.navCtrl.setRoot(HomePage);
         this.loader.dismiss();
       })
     }

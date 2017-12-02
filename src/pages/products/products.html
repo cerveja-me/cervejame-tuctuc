@@ -23,11 +23,11 @@
    </ion-list-header>
    <ion-item *ngFor="let p of l.products">
     <ion-thumbnail item-start>
-     <img-loader [src]="'http://cerveja.me/img/mobile/'+p.product.img"></img-loader>
+      <img-loader [src]="'https://cerveja.me/img/mobile/'+p.img"></img-loader>
    </ion-thumbnail>
 
    <ion-label>
-    <h2>{{p.product.name}}</h2>
+    <h2>{{p.name}}</h2>
     <p>R$ {{p.price}}</p>
   </ion-label>
   <ion-toggle [(ngModel)]="p.active" (ionChange)="updateProduct(p.id,p.active)"></ion-toggle>

@@ -24,6 +24,7 @@ import { ListPage } from '../pages/list/list';
 import { LoginPage } from '../pages/login/login';
 import { DetailsPage } from '../pages/details/details';
 import { FeedbackPage } from '../pages/feedback/feedback';
+import { ProductsPage } from '../pages/products/products';
 
 import { ConstantsProvider } from '../providers/constants/constants';
 import { UserProvider } from '../providers/user/user';
@@ -34,7 +35,7 @@ import { ProductsProvider } from '../providers/products/products';
 
 class AppVersionMock extends AppVersion {
   constructor(){super();}
-  getVersionNumber(){return new Promise((resolve, reject) => {resolve( '2.0.5');})}
+  getVersionNumber(){return new Promise((resolve, reject) => {resolve( '2.0.6');})}
 }
 class KeyboardMock extends Keyboard {
 
@@ -50,7 +51,7 @@ class DeviceMock extends Device{
   get model() : string { return "Browser - Chrome";}
   get platform() : string { return "Browser";}
   get serial() : string { return "unknown";}
-  get uuid() : string { return "1231231-83dad11-e7a91992-ebcb67fe33";}
+  get uuid() : string { return "1231231-8794564-e7a91992-ebcb67fe33";}
   get version(): string { return "7.1.1"; }
 }
 
@@ -65,7 +66,8 @@ class SplashScreenMock extends SplashScreen{
     ListPage,
     LoginPage,
     DetailsPage,
-    FeedbackPage
+    FeedbackPage,
+    ProductsPage
   ],
   imports: [
     HttpClientModule,
@@ -81,9 +83,11 @@ class SplashScreenMock extends SplashScreen{
     ListPage,
     LoginPage,
     DetailsPage,
-    FeedbackPage
+    FeedbackPage,
+    ProductsPage
   ],
   providers: [
+    AppVersion,
     StatusBar,
     SplashScreen,
     CallNumber,
@@ -94,10 +98,10 @@ class SplashScreenMock extends SplashScreen{
     CallNumber,
     // NativeRingtones,
     // HyperTrack,
-    { provide: AppVersion, useClass: AppVersionMock },
-    { provide: SplashScreen, useClass:SplashScreenMock },
-    { provide: Device, useClass: DeviceMock },
-    { provide: Keyboard,useClass:KeyboardMock },//coment before build to mobile
+    // { provide: AppVersion, useClass: AppVersionMock },
+    // { provide: SplashScreen, useClass:SplashScreenMock },
+    // { provide: Device, useClass: DeviceMock },
+    // { provide: Keyboard,useClass:KeyboardMock },//coment before build to mobile
 
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ConstantsProvider,

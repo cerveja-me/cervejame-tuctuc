@@ -56,7 +56,7 @@ export class DetailsPage {
     //   () => {
     //     // create LatLng object
     //     let ionic: LatLng = new LatLng(this.ord.lat, this.ord.lng);
-
+    //
     //     // create CameraPosition
     //     let position: CameraPosition = {
     //       target: ionic,
@@ -77,8 +77,8 @@ export class DetailsPage {
 
   callToClient() {
     this.callNumber.callNumber(this.ord.phone, true)
-      .then(() => console.log('Launched dialer!'))
-      .catch(() => console.log('Error launching dialer'));
+    .then(() => console.log('Launched dialer!'))
+    .catch(() => console.log('Error launching dialer'));
   }
 
   arrivedOnOrder() {
@@ -95,28 +95,22 @@ export class DetailsPage {
 
   startDelivery() {
     //abrir o aplicativo preferencia de mapas
-    // this.openNavigation();
+    this.openNavigation();
     this.order.driveToOrder(this.ord)
     .then( lo =>{
-      if (this.ord.icon ==="icon-onway") {
-        this.ord.btselect='concluir';
-      }else {
-        this.ord.btselect='entregar';
-      }      
+      this.ord.btselect='concluir';
     })
   }
   openNavigation() {
     // console.log('rota',this.ord.address.split(', complemento')[0]);
-    this.launchNavigator.navigate(this.ord.street+','+this.ord.num)
-      .then(
+    this.launchNavigator.navigate(this.ord.position_maps.x+','+this.ord.position_maps.y)
+    .then(
       success => console.log('Launched navigator'),
       error => console.log('Error launching navigator', error)
-      );
+    );
 
   }
-  dismiss() {
-    this.viewCtrl.dismiss();
-  }
+
   finish() {
     this.navCtrl.push(FeedbackPage, { order: this.ord });
   }

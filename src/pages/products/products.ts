@@ -27,12 +27,10 @@ import { ProductsProvider } from '../../providers/products/products';
    getProducts(){
      this.prod.getMyProducts()
      .then(list=>{
-       console.log('lsita->',list);
        this.lists=list;
      })
    }
    updateProduct(id, status){
-     console.log('desativar',id,status);
      this.prod.updateStatus(id,status)
      .then(p=>{
        this.getProducts();

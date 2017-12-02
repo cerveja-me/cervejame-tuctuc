@@ -40,7 +40,6 @@ export class HomePage {
     this.order.getOrders()
     .then(or=>{
       this.orders=or;
-      this.loader.dismiss();
       refresher.complete();
     })
     .catch(e=>{

@@ -13,6 +13,8 @@ import { DeviceProvider } from '../providers/device/device';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { LoginPage } from '../pages/login/login';
+import { ProductsPage } from '../pages/products/products';
+
 @Component({
   templateUrl: 'app.html'
 })
@@ -32,7 +34,7 @@ export class MyApp {
     // used for an example of ngFor and navigation
     this.pages = [
     { title: 'Pedidos', component: HomePage },
-    { title: 'Produtos', component: ListPage },
+    { title: 'Produtos', component: ProductsPage },
   ];
   this.storage.get('profile/auth/')
   .then((userLogged) => {
