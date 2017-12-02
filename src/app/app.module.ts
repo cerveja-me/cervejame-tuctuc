@@ -25,6 +25,7 @@ import { LoginPage } from '../pages/login/login';
 import { DetailsPage } from '../pages/details/details';
 import { FeedbackPage } from '../pages/feedback/feedback';
 import { ProductsPage } from '../pages/products/products';
+import { ModalChangePage } from '../pages/modal-change/modal-change';
 
 import { ConstantsProvider } from '../providers/constants/constants';
 import { UserProvider } from '../providers/user/user';
@@ -67,7 +68,8 @@ class SplashScreenMock extends SplashScreen{
     LoginPage,
     DetailsPage,
     FeedbackPage,
-    ProductsPage
+    ProductsPage,
+    ModalChangePage
   ],
   imports: [
     HttpClientModule,
@@ -84,7 +86,8 @@ class SplashScreenMock extends SplashScreen{
     LoginPage,
     DetailsPage,
     FeedbackPage,
-    ProductsPage
+    ProductsPage,
+    ModalChangePage
   ],
   providers: [
     AppVersion,
