@@ -126,7 +126,7 @@ export class NetworkProvider {
     return new Promise((resolve, reject) => {
       let h = new HttpHeaders()
         .append('Content-Type', 'application/json')
-      this.http.get(this.c.API + endpoint, {
+      this.http.get(endpoint, {
         headers: h
       })
         .subscribe(res => {

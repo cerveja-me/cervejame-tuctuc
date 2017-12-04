@@ -6,6 +6,7 @@ import { DeviceProvider } from '../../providers/device/device';
 import { OrderProvider } from '../../providers/order/order';
 
 import { DetailsPage } from '../details/details';
+import { OlddetailsPage } from '../olddetails/olddetails';
 
 @Component({
   selector: 'page-home',
@@ -13,6 +14,7 @@ import { DetailsPage } from '../details/details';
 })
 export class HomePage {
   orders;
+  old_orders;
   timer;
   loader = this.loading.create({
     content: 'Carregando... Aguarde...'
@@ -46,6 +48,15 @@ export class HomePage {
     .catch(e=>{
       refresher.complete();
     });
+    this.order.getOrdersOld()
+    .then(or=>{
+      this.old_orders=or;
+      refresher.complete();
+    })
+    .catch(e=>{
+      refresher.complete();
+    });
+    
   }
   findOrders(){
     this.loader.present();
@@ -64,6 +75,14 @@ export class HomePage {
     }
     this.device.stopRingTone();
     this.navCtrl.push(DetailsPage,{order:o})
+  }
+
+  openOldOrder(o){
+    if(o.aceptedAt==null){
+      this.order.aceptOldOrder(o);
+    }
+    this.device.stopRingTone();
+    this.navCtrl.push(OlddetailsPage,{order:o})
   }
 
 }

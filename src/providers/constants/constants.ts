@@ -30,5 +30,7 @@ export class ConstantsProvider {
   public OLD_ARRIVED_ORDER:string='sale/arrived/';
   public OLD_FINISH_ORDER:string='sale/finish/';
   public OLD_LOCATION:string = 'location/';
+  public OLD_ORDERS:string='sale/openSales/';
+  
 
 }
