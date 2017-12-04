@@ -186,48 +186,51 @@ export class OrderProvider {
     return a;
   }
 
-  aceptOldOrder(o){
+  aceptOldOrder(o) {
     return new Promise((resolve, reject) => {
       // this.device.stopRingTone();
-      this.network.get_old(this.network.c.OLD_API+this.network.c.OLD_ACCEPT_ORDER+o.saleid)
-      .then((res)=>{
-        resolve(res);
-      })
+      this.network.get_old(this.network.c.OLD_API + this.network.c.OLD_ACCEPT_ORDER + o.saleid)
+        .then((res) => {
+          resolve(res);
+        })
     })
   }
 
-  driveToOldOrder(o){
+  driveToOldOrder(o) {
     return new Promise((resolve, reject) => {
-      let u=this.user.getLoggedUser()
-
-      let data ={
-        sale:o.saleid,
-        user:u['id']
-      }
-      console.log('data',data);
-      this.network.post_old(this.network.c.OLD_API+this.network.c.OLD_DELIVERY_ORDER,data)
-      .then((res)=>{
-        // this.user.hyperTrack.createAndAssignAction('delivery',data.sale,o.address.split(', complemento')[0],o.lat,o.lng);
-        resolve(res);
-      })
+      this.user.getLoggedUser()
+        .then(u => {
+          let data = {
+            sale: o.saleid,
+            user: u['id']
+          }
+          console.log('data', data);
+          this.network.post_old(this.network.c.OLD_API + this.network.c.OLD_DELIVERY_ORDER, data)
+            .then((res) => {
+              // this.user.hyperTrack.createAndAssignAction('delivery',data.sale,o.address.split(', complemento')[0],o.lat,o.lng);
+              resolve(res);
+            })
+        })
     })
   }
 
-  // arrivedOnOldOrder(o){
-  //   return new Promise((resolve, reject) => {
-  //     let u=this.user.getLoggedUser()
+  arrivedOnOldOrder(o) {
+    return new Promise((resolve, reject) => {
+      this.user.getLoggedUser()
+        .then(u => {
 
-  //     let data ={
-  //       sale:o.saleid,
-  //       user:u['id']
-  //     }
+          let data = {
+            sale: o.saleid,
+            user: u['id']
+          }
 
-  //     this.device.post(this.device.API+this.device.ARRIVED_ORDER,data)
-  //     .then((res)=>{
-  //       resolve(res);
-  //     })
-  //   })
-  // }
+          this.network.post_old(this.network.c.OLD_API + this.network.c.OLD_ARRIVED_ORDER, data)
+            .then((res) => {
+              resolve(res);
+            })
+        })
+    })
+  }
 
   // finishOldOrder(id, rate,comment){
   //   return new Promise((resolve, reject) => {
