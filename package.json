@@ -62,6 +62,7 @@
     "onesignal-cordova-plugin": "^2.2.4",
     "rxjs": "5.5.2",
     "sw-toolbox": "3.6.0",
+    "ts-md5": "^1.2.2",
     "uk.co.workingedge.phonegap.plugin.launchnavigator": "^4.1.0",
     "zone.js": "0.8.18"
   },
