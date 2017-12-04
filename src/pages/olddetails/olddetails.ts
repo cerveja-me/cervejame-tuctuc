@@ -6,6 +6,8 @@ import { CallNumber } from '@ionic-native/call-number';
 
 import { OrderProvider } from '../../providers/order/order';
 
+import { OldfeedbackPage } from "../oldfeedback/oldfeedback";
+
 @Component({
   selector: 'page-olddetails',
   templateUrl: 'olddetails.html',
@@ -106,7 +108,7 @@ export class OlddetailsPage {
     this.viewCtrl.dismiss();
   }
   finish() {
-    // this.navCtrl.push(FeedbackPage,{order:this.ord});
+    this.navCtrl.push(OldfeedbackPage,{order:this.ord});
   }
 
 }

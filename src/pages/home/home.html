@@ -73,7 +73,7 @@
 </div>
 
 
-<p *ngIf="orders && !orders.length">Nenhum pedido, puxe atualizar</p>
+<p *ngIf="( orders && !orders.length) && ( old_orders && !old_orders.length)">Nenhum pedido, puxe atualizar</p>
 
 
 

@@ -232,27 +232,29 @@ export class OrderProvider {
     })
   }
 
-  // finishOldOrder(id, rate,comment){
-  //   return new Promise((resolve, reject) => {
-  //     let u =this.user.getLoggedUser();
+  finishOldOrder(id, rate, comment) {
+    return new Promise((resolve, reject) => {
+      this.user.getLoggedUser()
+        .then(u => {
 
-  //     let data ={
-  //       sale:id,
-  //       rate:rate,
-  //       comment:comment,
-  //       user:u['id']
-  //     }
-  //     this.device.post(this.device.API+this.device.FINISH_ORDER,data)
-  //     .then((res)=>{
-  //       this.user.hyperTrack.completeActionWithLookupId(id)
-  //       .then(result=>{
-  //         console.log('completing action->',result);
-  //       })
-  //       resolve(res);
-  //     })
-  //   })
+          let data = {
+            sale: id,
+            rate: rate,
+            comment: comment,
+            user: u['id']
+          }
+          this.network.post_old(this.network.c.OLD_API + this.network.c.OLD_FINISH_ORDER, data)
+            .then((res) => {
+              // this.user.hyperTrack.completeActionWithLookupId(id)
+              //   .then(result => {
+              //     console.log('completing action->', result);
+              //   })
+              resolve(res);
+            })
+        })
+    })
 
-  // }
+  }
 
 
 
