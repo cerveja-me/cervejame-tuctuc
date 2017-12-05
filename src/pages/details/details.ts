@@ -42,6 +42,14 @@ export class DetailsPage {
     } else {
       this.ord.btselect = 'entregar';
     }
+    
+    if (this.ord.elapsed > 45) {
+      this.ord.cardstatus = 'card__status critical';
+    } else if (this.ord.elapsed  > 25) {
+      this.ord.cardstatus = 'card__status alert';
+    } else {
+      this.ord.cardstatus = 'card__status';
+    }
     this.loadMap();
   }
 

@@ -48,6 +48,7 @@ export class HomePage {
     .catch(e=>{
       refresher.complete();
     });
+    //oldapi
     this.order.getOrdersOld()
     .then(or=>{
       this.old_orders=or;
@@ -56,7 +57,7 @@ export class HomePage {
     .catch(e=>{
       refresher.complete();
     });
-    
+
   }
   findOrders(){
     this.loader.present();
@@ -68,7 +69,18 @@ export class HomePage {
     .catch(e=>{
       this.loader.dismiss();
     });
+
+    //oldapi
+    this.order.getOrdersOld()
+    .then(or=>{
+      this.old_orders=or;
+      this.loader.dismiss();
+    })
+    .catch(e=>{
+      this.loader.dismiss();
+    });
   }
+
   openOrder(o){
     if(o.aceptedAt==null){
       this.order.aceptOrder(o);

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class ConstantsProvider {
-  public API:string='http://localhost:1337/ec2-54-207-94-27.sa-east-1.compute.amazonaws.com/api/'
+  public API:string='http://ec2-54-207-94-27.sa-east-1.compute.amazonaws.com/api/'
   // public API:string='https://192.168.0.10:9001/api/';
   // public API:string='http://localhost:1337/127.0.0.1:9001/api/';
   // public API:string='http://10.42.0.1:9001/api/';
@@ -31,6 +31,6 @@ export class ConstantsProvider {
   public OLD_FINISH_ORDER:string='sale/finish/';
   public OLD_LOCATION:string = 'location/';
   public OLD_ORDERS:string='sale/openSales/';
-  
+
 
 }

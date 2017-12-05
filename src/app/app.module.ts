@@ -110,10 +110,10 @@ class SplashScreenMock extends SplashScreen{
     NativeRingtones,
     OneSignal,
     // HyperTrack,
-    { provide: AppVersion, useClass: AppVersionMock },
-    { provide: SplashScreen, useClass:SplashScreenMock },
-    { provide: Device, useClass: DeviceMock },
-    { provide: Keyboard,useClass:KeyboardMock },//coment before build to mobile
+    // { provide: AppVersion, useClass: AppVersionMock },
+    // { provide: SplashScreen, useClass:SplashScreenMock },
+    // { provide: Device, useClass: DeviceMock },
+    // { provide: Keyboard,useClass:KeyboardMock },//coment before build to mobile
 
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ConstantsProvider,

@@ -4,7 +4,7 @@
 
   </ion-navbar>
   <figure class="card__user__photo"></figure>
-     <h2 *ngIf="ord" [ngClass]="ord.elapsed>25?ord.elapsed>45?'critical':'alert':''"><span class="icon-clock"></span>{{ord.elaspted}} min</h2>
+     <h2 *ngIf="ord" [ngClass]="ord.cardstatus"><span class="icon-clock"></span>{{ord.elapsed}} min</h2>
 </ion-header>
 
 <ion-content >
@@ -18,7 +18,7 @@
          <!-- {{ord.phone}} -->
        </span>
 
-       <span class="card__user__info">{{ord.name}}</span>
+       <span class="card__user__info">{{ord.costumer.split(' ')[0]}}</span>
        <button [ngClass]="ord && ord.btselect=='concluir'?'card__user__btn btn-message':'card__user__btn btn-message btn-disabled'" (click)="arrivedOnOrder()">Cheguei!</button>
      </div>
 
