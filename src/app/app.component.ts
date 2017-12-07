@@ -53,7 +53,7 @@ initializeApp() {
     setTimeout(() => {
       this.splashScreen.hide();
     }, 500);
-    // this.device.startOneSignal();
+    this.device.startOneSignal();
   });
 }
 
