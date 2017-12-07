@@ -106,9 +106,7 @@ export class DeviceProvider {
     clearInterval(this.vibrate);
   }
 
-  this.oneSignal.handleNotificationOpened().subscribe((text) => {
-    console.log('Opened-> ',text);
-  });
+
 
   startOneSignal(){
     if(this.platform.is('cordova')){
@@ -130,6 +128,10 @@ export class DeviceProvider {
           console.log('alert-> ',d);
           this.events.publish(d.action, text.payload);
         }
+      });
+      this.oneSignal.handleNotificationOpened()
+      .subscribe((text) => {
+        console.log('Opened-> ',text);
       });
 
 
