@@ -7,7 +7,7 @@ import { OneSignal } from '@ionic-native/onesignal';
 import { NetworkProvider } from '../network/network';
 import { ConstantsProvider } from '../constants/constants';
 import { Vibration } from '@ionic-native/vibration';
-import { NativeRingtones } from '@ionic-native/native-ringtones';
+// import { NativeRingtones } from '@ionic-native/native-ringtones';
 
 
 @Injectable()
@@ -24,7 +24,7 @@ export class DeviceProvider {
     private oneSignal:OneSignal,
     private alertCtrl:AlertController,
     private events:Events,
-    private ringtones: NativeRingtones
+    // private ringtones: NativeRingtones
 
   ) {
     this.createDevice('empty');
@@ -83,7 +83,7 @@ export class DeviceProvider {
   playRingTone(){
     this.vibrate= setInterval(() =>{
       this.vibration.vibrate(500);
-      this.ringtones.playRingtone(this.rings[this.pos].Url);
+      // this.ringtones.playRingtone(this.rings[this.pos].Url);
       setTimeout(function(){
         this.vibration.vibrate(0);
       },500)
@@ -94,11 +94,11 @@ export class DeviceProvider {
   rings:any;
   pos:any;
   prepareAudio(){
-    this.ringtones.getRingtone()
-    .then((ringtones) => {
-      this.pos=Math.floor(Math.random() * ringtones.length);
-      this.rings=ringtones;
-    });
+    // this.ringtones.getRingtone()
+    // .then((ringtones) => {
+    //   this.pos=Math.floor(Math.random() * ringtones.length);
+    //   this.rings=ringtones;
+    // });
   }
 
   stopRingTone(){
