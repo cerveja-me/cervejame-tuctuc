@@ -92,11 +92,11 @@
             "cordova-plugin-background-mode": {},
             "cordova-plugin-vibration": {},
             "cordova-plugin-native-ringtones": {},
-            "onesignal-cordova-plugin": {},
             "cordova-plugin-actionsheet": {},
             "cordova-plugin-media": {},
             "cordova-plugin-dialogs": {},
-            "mx.ferreyra.callnumber": {}
+            "mx.ferreyra.callnumber": {},
+            "onesignal-cordova-plugin": {}
         },
         "platforms": [
             "android"
