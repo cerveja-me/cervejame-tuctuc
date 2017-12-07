@@ -13,6 +13,7 @@ import { Vibration } from '@ionic-native/vibration';
 @Injectable()
 export class DeviceProvider {
   dev:any;
+  push='empty';
 
   constructor(
     private platform:Platform,
@@ -141,8 +142,13 @@ export class DeviceProvider {
       .then(res=>{
         this.createDevice(res.userId);
         this.events.publish('push_connected', {push:res.userId});
+        this.createDevice(res.userId);
+        this.push=res.userId;
       })
     }
+  }
+  getpushidforold(){
+    return this.push;
   }
 
   oneSignalTagZone(tag:string,zone:string){

@@ -45,14 +45,13 @@ export class UserProvider {
         email: data.login,
         password: Md5.hashStr(data.password),
         device: 'onesignal',
-        push: '123'
+        push: this.device.getpushidforold()
       }
-      // data.password=Md5.hashStr(data.password);            
+      // data.password=Md5.hashStr(data.password);
       this.network.post_old(this.network.c.OLD_API + this.network.c.OLD_AUTH, c)
         .then(u => {
           this.setLoggedUser(u);
           resolve(u);
-          console.log('user_old', u);
         })
     })
   }
