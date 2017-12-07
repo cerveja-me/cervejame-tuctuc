@@ -30,6 +30,7 @@ export class MyApp {
     public statusBar: StatusBar,
     public splashScreen: SplashScreen,
     public storage: Storage,
+    public device:DeviceProvider
 ) {
     // used for an example of ngFor and navigation
     this.pages = [
