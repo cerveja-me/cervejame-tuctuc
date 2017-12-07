@@ -33,7 +33,7 @@ export class DeviceProvider {
     if(this.platform.is('cordova')){
       // UXCam.startWithKey("be70a1dceee9857");//contas@cerveja.me
       // UXCam.tagUsersName(this.device.uuid);
-      // this.startOneSignal();
+      this.startOneSignal();
     }
   }
 
@@ -106,47 +106,47 @@ export class DeviceProvider {
     clearInterval(this.vibrate);
   }
 
-  // this.oneSignal.handleNotificationOpened().subscribe((text) => {
-  //   console.log('Opened-> ',text);
-  // });
+  this.oneSignal.handleNotificationOpened().subscribe((text) => {
+    console.log('Opened-> ',text);
+  });
 
-  // startOneSignal(){
-  //   if(this.platform.is('cordova')){
-  //     var settings:any={kOSSettingsKeyAutoPrompt:true};
-  //     this.oneSignal.iOSSettings(settings);
-  //     this.oneSignal.startInit('2c98ff23-918f-4620-939c-ebae678da341', '504554673032');
-  //     this.oneSignal.inFocusDisplaying(this.oneSignal.OSInFocusDisplayOption.None);
+  startOneSignal(){
+    if(this.platform.is('cordova')){
+      var settings:any={kOSSettingsKeyAutoPrompt:true};
+      this.oneSignal.iOSSettings(settings);
+      this.oneSignal.startInit('2c98ff23-918f-4620-939c-ebae678da341', '504554673032');
+      this.oneSignal.inFocusDisplaying(this.oneSignal.OSInFocusDisplayOption.None);
 
-  //     this.oneSignal.handleNotificationReceived()
-  //     .subscribe((text) => {
-  //       let alert = this.alertCtrl.create({
-  //         title: text.payload.title,
-  //         message: text.payload.body,
-  //         buttons: ['Ok']
-  //       });
+      this.oneSignal.handleNotificationReceived()
+      .subscribe((text) => {
+        let alert = this.alertCtrl.create({
+          title: text.payload.title,
+          message: text.payload.body,
+          buttons: ['Ok']
+        });
 
-  //       if(text.payload.additionalData !==null){
-  //         let d= text.payload.additionalData;
-  //         console.log('alert-> ',d);
-  //         this.events.publish(d.action, text.payload);
-  //       }
-  //     });
+        if(text.payload.additionalData !==null){
+          let d= text.payload.additionalData;
+          console.log('alert-> ',d);
+          this.events.publish(d.action, text.payload);
+        }
+      });
 
 
-  //     this.oneSignal.endInit();
-  //     this.oneSignal.registerForPushNotifications();
-  //     this.oneSignal.getIds()
-  //     .then(res=>{
-  //       this.createDevice(res.userId);
-  //       this.events.publish('push_connected', {push:res.userId});
-  //     })
-  //   }
-  // }
+      this.oneSignal.endInit();
+      this.oneSignal.registerForPushNotifications();
+      this.oneSignal.getIds()
+      .then(res=>{
+        this.createDevice(res.userId);
+        this.events.publish('push_connected', {push:res.userId});
+      })
+    }
+  }
 
-  // oneSignalTagZone(tag:string,zone:string){
-  //   if(this.platform.is('cordova')){
-  //     this.oneSignal.sendTag(tag, zone);
-  //   }
-  // }
+  oneSignalTagZone(tag:string,zone:string){
+    if(this.platform.is('cordova')){
+      this.oneSignal.sendTag(tag, zone);
+    }
+  }
 
 }
