@@ -41,7 +41,7 @@ export class OlddetailsPage {
     } else {
       this.ord.btselect = 'entregar';
     }
-    // this.loadMap();
+    this.loadMap();
   }
 
   openChangeInformation() {
