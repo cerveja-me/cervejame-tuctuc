@@ -23,17 +23,17 @@ keytool -genkey -v -keystore cervejametuc.keystore -alias cervejame -keyalg RSA 
 
 
 What is your first and last name?
-[Jeferson Guardezi]:
+Jeferson Guardezi:
 What is the name of your organizational unit?
-[cervejame]:
+cervejame:
 What is the name of your organization?
-[cervejame]:
+cervejame:
 What is the name of your City or Locality?
-[sp]:
+sp:
 What is the name of your State or Province?
-[sp]:
+sp:
 What is the two-letter country code for this unit?
-[BR]:
+BR:
 Is CN=Jeferson Guardezi, OU=cervejame, O=cervejame, L=sp, ST=sp, C=BR correct?
-[no]:  yes
+no:  yes
 passwords : cervejame
