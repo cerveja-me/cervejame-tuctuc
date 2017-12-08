@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Platform, Events } from 'ionic-angular';
-import { BackgroundMode } from '@ionic-native/background-mode';
+//import { BackgroundMode } from '@ionic-native/background-mode';
 
 import { NetworkProvider } from '../network/network';
 import { DeviceProvider } from '../device/device';
@@ -12,7 +12,7 @@ export class OrderProvider {
 
   constructor(
     private network: NetworkProvider,
-    public backgroundMode: BackgroundMode,
+    //public backgroundMode: BackgroundMode,
     private device: DeviceProvider,
     public platform: Platform,
     public events: Events,
@@ -110,37 +110,37 @@ export class OrderProvider {
           console.log('pedido em aberto');
           this.events.publish('neworders', 'neworders');
           this.device.playRingTone();
-          this.backgroundMode.moveToForeground();
+    //      this.backgroundMode.moveToForeground();
         }
       })
   }
 
   prepareBackground() {
-    this.backgroundMode.setDefaults({ silent: true })
-    this.backgroundMode.overrideBackButton();
+  //  this.backgroundMode.setDefaults({ silent: true })
+  //  this.backgroundMode.overrideBackButton();
     // this.backgroundMode.excludeFromTaskList();
-    this.backgroundMode.enable();
+    //this.backgroundMode.enable();
 
-    this.backgroundMode.configure;
-    this.backgroundMode.on('activate').subscribe(status => {
-      console.log('buscando em backgrou a cada 30 segundos');
-      this.backgroundFetch = setInterval(() => {
-        console.log('buscar');
-        this.getOrdersAndRing();
-      }, 5000);
-    });
-    this.backgroundMode.on('deactivate').subscribe(() => {
-      clearInterval(this.backgroundFetch);
-    });
-    this.backgroundMode.on('disable').subscribe(() => {
-      console.log('disable');
-    });
-    this.backgroundMode.on('deactivate').subscribe(() => {
-      console.log('deactivate');
-    });
-    this.backgroundMode.on('failure').subscribe(() => {
-      console.log('failure');
-    });
+  //  this.backgroundMode.configure;
+  //  this.backgroundMode.on('activate').subscribe(status => {
+  //    console.log('buscando em backgrou a cada 30 segundos');
+  //    this.backgroundFetch = setInterval(() => {
+  //      console.log('buscar');
+  //      this.getOrdersAndRing();
+  //    }, 5000);
+  //  });
+  //  this.backgroundMode.on('deactivate').subscribe(() => {
+  //    clearInterval(this.backgroundFetch);
+  //  });
+  //  this.backgroundMode.on('disable').subscribe(() => {
+  //    console.log('disable');
+  //  });
+  //  this.backgroundMode.on('deactivate').subscribe(() => {
+  //    console.log('deactivate');
+  //  });
+  //  this.backgroundMode.on('failure').subscribe(() => {
+  //    console.log('failure');
+  //  });
   }
 
   /*metodos de compatibilidade*/
