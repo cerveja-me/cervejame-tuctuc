@@ -34,7 +34,7 @@ export class DeviceProvider {
     if(this.platform.is('cordova')){
       // UXCam.startWithKey("be70a1dceee9857");//contas@cerveja.me
       // UXCam.tagUsersName(this.device.uuid);
-      this.startOneSignal();
+      //this.startOneSignal();
     }
   }
 
@@ -113,7 +113,7 @@ export class DeviceProvider {
     if(this.platform.is('cordova')){
       var settings:any={kOSSettingsKeyAutoPrompt:true};
       this.oneSignal.iOSSettings(settings);
-      this.oneSignal.startInit('2c98ff23-918f-4620-939c-ebae678da341', '504554673032');
+      this.oneSignal.startInit('2c98ff23-918f-4620-939c-ebae678da341');
       this.oneSignal.inFocusDisplaying(this.oneSignal.OSInFocusDisplayOption.None);
 
       this.oneSignal.handleNotificationReceived()
