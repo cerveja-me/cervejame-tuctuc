@@ -7,7 +7,7 @@ ionic build --release android
 
 ### sign the build
 ```
-rm cervejame-tuc.apk && jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore DOC/cervejametuc.keystore -storepass cervejame platforms/android/build/outputs/apk/android-release-unsigned.apk cervejame
+rm cervejame-tuc.apk && jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore doc/cervejametuc.keystore -storepass cervejame platforms/android/build/outputs/apk/android-release-unsigned.apk cervejame
 ```
 
 ### signed apk
