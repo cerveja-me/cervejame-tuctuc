@@ -30,6 +30,7 @@ export class UserProvider {
                 })
                 .catch(e => {
                   console.log("erro no login velho ->", e);
+                  reject(e)
                 })
             })
             .catch(reject)

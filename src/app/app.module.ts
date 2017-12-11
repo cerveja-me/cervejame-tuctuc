@@ -39,7 +39,7 @@ import { ProductsProvider } from '../providers/products/products';
 
 class AppVersionMock extends AppVersion {
   constructor(){super();}
-  getVersionNumber(){return new Promise((resolve, reject) => {resolve( '2.0.6');})}
+  getVersionNumber(){return new Promise((resolve, reject) => {resolve( '2.1.6');})}
 }
 class KeyboardMock extends Keyboard {
 
@@ -55,7 +55,7 @@ class DeviceMock extends Device{
   get model() : string { return "Browser - Chrome";}
   get platform() : string { return "Browser";}
   get serial() : string { return "unknown";}
-  get uuid() : string { return "1231231-8794564-e7a91992-ebcb67fe33";}
+  get uuid() : string { return "123-8794564-e7a91992-ebcb67fe33";}
   get version(): string { return "7.1.1"; }
 }
 

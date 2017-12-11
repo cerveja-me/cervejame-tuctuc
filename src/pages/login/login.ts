@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, AlertController } from 'ionic-angular';
 
 import { HomePage } from '../home/home';
 
@@ -19,7 +19,8 @@ export class LoginPage {
   constructor(
     private navCtrl:NavController,
     private device:DeviceProvider,
-    private user:UserProvider
+    private user:UserProvider,
+    private alert: AlertController
 
   ) {
   }
@@ -30,6 +31,15 @@ export class LoginPage {
       this.navCtrl.setRoot(HomePage);
     })
     .catch( e =>{
+      this.alert.create({
+        title:'ERRO',
+        message:e.error.message,
+        buttons:[
+          {
+            text:'ok'
+          }
+        ]
+      }).present();
       console.log('erro -> ', e);
     })
   }
