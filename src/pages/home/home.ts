@@ -6,7 +6,6 @@ import { DeviceProvider } from '../../providers/device/device';
 import { OrderProvider } from '../../providers/order/order';
 
 import { DetailsPage } from '../details/details';
-import { OlddetailsPage } from '../olddetails/olddetails';
 
 @Component({
   selector: 'page-home',
@@ -69,16 +68,6 @@ export class HomePage {
     .catch(e=>{
       this.loader.dismiss();
     });
-
-    //oldapi
-    this.order.getOrdersOld()
-    .then(or=>{
-      this.old_orders=or;
-      this.loader.dismiss();
-    })
-    .catch(e=>{
-      this.loader.dismiss();
-    });
   }
 
   openOrder(o){
@@ -88,13 +77,4 @@ export class HomePage {
     this.device.stopRingTone();
     this.navCtrl.push(DetailsPage,{order:o})
   }
-
-  openOldOrder(o){
-    if(o.aceptedAt==null){
-      this.order.aceptOldOrder(o);
-    }
-    this.device.stopRingTone();
-    this.navCtrl.push(OlddetailsPage,{order:o})
-  }
-
 }

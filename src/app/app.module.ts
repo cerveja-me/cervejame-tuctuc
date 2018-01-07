@@ -21,14 +21,11 @@ import { LaunchNavigator } from '@ionic-native/launch-navigator';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
 import { LoginPage } from '../pages/login/login';
 import { DetailsPage } from '../pages/details/details';
 import { FeedbackPage } from '../pages/feedback/feedback';
 import { ProductsPage } from '../pages/products/products';
 import { ModalChangePage } from '../pages/modal-change/modal-change';
-import { OlddetailsPage } from '../pages/olddetails/olddetails';
-import { OldfeedbackPage } from '../pages/oldfeedback/oldfeedback';
 
 import { ConstantsProvider } from '../providers/constants/constants';
 import { UserProvider } from '../providers/user/user';
@@ -67,14 +64,11 @@ class SplashScreenMock extends SplashScreen{
   declarations: [
     MyApp,
     HomePage,
-    ListPage,
     LoginPage,
     DetailsPage,
     FeedbackPage,
     ProductsPage,
-    ModalChangePage,
-    OlddetailsPage,
-    OldfeedbackPage
+    ModalChangePage
   ],
   imports: [
     HttpClientModule,
@@ -87,14 +81,11 @@ class SplashScreenMock extends SplashScreen{
   entryComponents: [
     MyApp,
     HomePage,
-    ListPage,
     LoginPage,
     DetailsPage,
     FeedbackPage,
     ProductsPage,
     ModalChangePage,
-    OlddetailsPage,
-    OldfeedbackPage
   ],
   providers: [
     AppVersion,

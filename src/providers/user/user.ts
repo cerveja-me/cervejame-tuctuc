@@ -23,15 +23,8 @@ export class UserProvider {
           p.device_id = d['id'];
           this.network.post(this.network.c.AUTH, p)
             .then(t => {
-              this.old_login(p)
-                .then(u => {
-                  this.storage.set(this.network.c.AUTH, t['token']);
-                  resolve(t);
-                })
-                .catch(e => {
-                  console.log("erro no login velho ->", e);
-                  reject(e)
-                })
+              this.storage.set(this.network.c.AUTH, t['token']);
+              resolve(t);
             })
             .catch(reject)
         })
@@ -39,23 +32,7 @@ export class UserProvider {
     })
   }
 
-  old_login(data) {
 
-    return new Promise((resolve, reject) => {
-      let c = {
-        email: data.login,
-        password: Md5.hashStr(data.password),
-        device: 'onesignal',
-        push: this.device.getpushidforold()
-      }
-      // data.password=Md5.hashStr(data.password);
-      this.network.post_old(this.network.c.OLD_API + this.network.c.OLD_AUTH, c)
-        .then(u => {
-          this.setLoggedUser(u);
-          resolve(u);
-        })
-    })
-  }
   user: any;
   setLoggedUser(user) {
     this.user = user;
@@ -69,10 +46,10 @@ export class UserProvider {
         resolve(this.user);
       } else {
         this.storage.get('ols_user_logged')
-        .then( u =>{
-          resolve(u);
-          this.user=u;
-        })
+          .then(u => {
+            resolve(u);
+            this.user = u;
+          })
       }
     })
   }

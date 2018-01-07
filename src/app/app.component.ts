@@ -11,7 +11,6 @@ import { DeviceProvider } from '../providers/device/device';
 
 //relatedpages
 import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
 import { LoginPage } from '../pages/login/login';
 import { ProductsPage } from '../pages/products/products';
 
