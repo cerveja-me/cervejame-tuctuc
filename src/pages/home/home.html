@@ -16,9 +16,6 @@
   pullingText="puxe para atualizar"
   refreshingSpinner="circles"
   refreshingText="Atualizando...">
-
-
-
 </ion-refresher-content>
 </ion-refresher>
 
@@ -47,34 +44,6 @@
   </div>
 </div>
 
-<div class="card" *ngFor="let i of old_orders" (click)="openOldOrder(i)">
-  <h2 [ngClass]="i.cardstatus"><span class="icon-clock"></span>{{i.minutes}} min</h2>
-  <div class="card__details">
-    <span class="card__user"><span class="icon-user"></span>{{i.name.split(' ')[0]}}</span>
-    <!-- <span class="card__payment">{{i.payment}}<span  [ngClass]="i.pagamento"></span></span> -->
-  </div>
-  <div class="card__info">
-    <span class="card__info__order">
-
-      <span>
-        <figure class="card__info__image">
-          <img-loader [src]="'http://cerveja.me/img/mobile/'+i.img"></img-loader>
-        </figure>
-        {{i.amount}} Caixas
-        <small>
-          {{i.proname}}
-        </small>
-      </span>
-    </span>
-    <button class="card__info__button" [ngClass]="i.btselect=='card__info__button__icon icon-go'?'active':''">
-      <span [ngClass]="i.btselect"></span>
-    </button>
-  </div>
-</div>
-
-
-<p *ngIf="( orders && !orders.length) && ( old_orders && !old_orders.length)">Nenhum pedido, puxe atualizar</p>
-
-
+<p *ngIf="orders && !orders.length">Nenhum pedido, puxe atualizar</p>
 
 </ion-content>

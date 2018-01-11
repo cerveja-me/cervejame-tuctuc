@@ -40,7 +40,6 @@ export class LoginPage {
           }
         ]
       }).present();
-      console.log('erro -> ', e);
     })
   }
 

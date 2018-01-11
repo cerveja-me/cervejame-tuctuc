@@ -161,9 +161,6 @@ export class DeviceProvider {
       })
     }
   }
-  getpushidforold(){
-    return this.push;
-  }
 
   oneSignalTagZone(tag:string,zone:string){
     if(this.platform.is('cordova')){
