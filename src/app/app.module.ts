@@ -13,7 +13,7 @@ import { IonicStorageModule } from '@ionic/storage';
 import { AppVersion } from '@ionic-native/app-version';
 import { Vibration } from '@ionic-native/vibration';
 // import { NativeRingtones } from '@ionic-native/native-ringtones';
-// import { HyperTrack } from '@ionic-native/hyper-track';
+import { HyperTrack } from '@ionic-native/hyper-track';
 import { Keyboard } from '@ionic-native/keyboard';
 import { CallNumber } from '@ionic-native/call-number';
 import { GoogleMaps, GoogleMap, GoogleMapsEvent, LatLng, CameraPosition, MarkerOptions, Marker} from '@ionic-native/google-maps';
@@ -100,7 +100,7 @@ class SplashScreenMock extends SplashScreen{
     CallNumber,
     // NativeRingtones,
     OneSignal,
-    // HyperTrack,
+    HyperTrack,
     // { provide: AppVersion, useClass: AppVersionMock },
     // { provide: SplashScreen, useClass:SplashScreenMock },
     // { provide: Device, useClass: DeviceMock },

@@ -20,10 +20,12 @@ export class OrderProvider {
   ) {
     this.platform.ready().then(() => {
       this.prepareBackground();
+      this.user.createOrGetHyperTrack();
     })
   }
 
   getOrders() {
+    this.user.getUserDetails();
     return new Promise((resolve, reject) => {
       this.network.get(this.network.c.ACTION)
         .then(orders => {
@@ -143,26 +145,7 @@ export class OrderProvider {
   //  });
   }
 
-  /*metodos de compatibilidade*/
-  getOrdersOld() {
-    return new Promise((resolve, reject) => {
-      this.user.getLoggedUser()
-        .then(u => {
-          this.network.get_old(this.network.c.OLD_API + this.network.c.OLD_ORDERS + u['id'])
-            .then(x => {
-              let orders = [];
-              orders = <Array<any>>x;
-              orders = orders.map(this.convertOrder);
-              resolve(orders)
-            })
-            .catch(e => {
-              reject(e)
-              // console.log(e);
-            })
-        })
-
-    })
-  }
+  
 
   convertOrder(a) {
     a.minutes = Math.round(a.tempo);
@@ -186,75 +169,18 @@ export class OrderProvider {
     return a;
   }
 
-  aceptOldOrder(o) {
-    return new Promise((resolve, reject) => {
-      // this.device.stopRingTone();
-      this.network.get_old(this.network.c.OLD_API + this.network.c.OLD_ACCEPT_ORDER + o.saleid)
-        .then((res) => {
-          resolve(res);
-        })
-    })
-  }
-
-  driveToOldOrder(o) {
-    return new Promise((resolve, reject) => {
-      this.user.getLoggedUser()
-        .then(u => {
-          let data = {
-            sale: o.saleid,
-            user: u['id']
-          }
-          console.log('data', data);
-          this.network.post_old(this.network.c.OLD_API + this.network.c.OLD_DELIVERY_ORDER, data)
-            .then((res) => {
+  
               // this.user.hyperTrack.createAndAssignAction('delivery',data.sale,o.address.split(', complemento')[0],o.lat,o.lng);
-              resolve(res);
-            })
-        })
-    })
-  }
 
-  arrivedOnOldOrder(o) {
-    return new Promise((resolve, reject) => {
-      this.user.getLoggedUser()
-        .then(u => {
 
-          let data = {
-            sale: o.saleid,
-            user: u['id']
-          }
+  
 
-          this.network.post_old(this.network.c.OLD_API + this.network.c.OLD_ARRIVED_ORDER, data)
-            .then((res) => {
-              resolve(res);
-            })
-        })
-    })
-  }
 
-  finishOldOrder(id, rate, comment) {
-    return new Promise((resolve, reject) => {
-      this.user.getLoggedUser()
-        .then(u => {
-
-          let data = {
-            sale: id,
-            rate: rate,
-            comment: comment,
-            user: u['id']
-          }
-          this.network.post_old(this.network.c.OLD_API + this.network.c.OLD_FINISH_ORDER, data)
-            .then((res) => {
               // this.user.hyperTrack.completeActionWithLookupId(id)
               //   .then(result => {
               //     console.log('completing action->', result);
               //   })
-              resolve(res);
-            })
-        })
-    })
-
-  }
+              
 
 
 

@@ -27,7 +27,7 @@ export class HomePage {
     private loading:LoadingController,
     private alert:AlertController,
     public device:DeviceProvider) {
-
+      
     this.events.subscribe('neworders', data=>{
       console.log('abriu o evento buscar');
       this.findOrders();
@@ -42,15 +42,6 @@ export class HomePage {
     this.order.getOrders()
     .then(or=>{
       this.orders=or;
-      refresher.complete();
-    })
-    .catch(e=>{
-      refresher.complete();
-    });
-    //oldapi
-    this.order.getOrdersOld()
-    .then(or=>{
-      this.old_orders=or;
       refresher.complete();
     })
     .catch(e=>{

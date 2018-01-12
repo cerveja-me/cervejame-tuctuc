@@ -14,6 +14,7 @@ export class ConstantsProvider {
   public AUTH:string=this.PROFILE+'auth/';
   public RATE:string='rate/';
   public ACTION:string='action/';
+  public SELLER:string  = 'seller/';
   public PRODUCTS:string='productzone/';
   public REMOTE_ASSETS:string='https://s3-sa-east-1.amazonaws.com/assests.cerveja.me';
   //public REMOTE_ASSETS:string='https://assets.cerveja.me/';

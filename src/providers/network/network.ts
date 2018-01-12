@@ -72,12 +72,8 @@ export class NetworkProvider {
           let h;
           if (t) {
             h = new HttpHeaders()
-              .append('Content-Type', 'application/json')
               .append('Authorization', 'Bearer ' + t);
-          } else {
-            h = new HttpHeaders()
-              .append('Content-Type', 'application/json');
-          }
+          } 
           this.http.get(this.c.API + endpoint, {
             headers: h
           })
@@ -86,53 +82,6 @@ export class NetworkProvider {
             }, (err) => {
               reject(err);
             });
-        });
-    });
-  }
-
-  post_old(endpoint, data) {
-    return new Promise((resolve, reject) => {
-      let h = new HttpHeaders()
-        .append('Content-Type', 'application/json')
-
-      this.http.post(endpoint, JSON.stringify(data), {
-        headers: h
-      })
-        .subscribe(res => {
-          resolve(res);
-        }, (err) => {
-          reject(err);
-        });
-    })
-
-  }
-
-  put_old(endpoint, data) {
-    return new Promise((resolve, reject) => {
-      let h = new HttpHeaders()
-        .append('Content-Type', 'application/json')
-      this.http.put(this.c.API + endpoint, JSON.stringify(data), {
-        headers: h
-      })
-        .subscribe(res => {
-          resolve(res);
-        }, (err) => {
-          reject(err);
-        });
-    });
-  }
-
-  get_old(endpoint) {
-    return new Promise((resolve, reject) => {
-      let h = new HttpHeaders()
-        .append('Content-Type', 'application/json')
-      this.http.get(endpoint, {
-        headers: h
-      })
-        .subscribe(res => {
-          resolve(res);
-        }, (err) => {
-          reject(err);
         });
     });
   }
