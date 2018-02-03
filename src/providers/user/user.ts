@@ -129,7 +129,7 @@ export class UserProvider {
             this.hyperTrack.setUserId(htu.id)
               .then(usertrack => {
                 this.hyperTrack.startTracking().then(userId => {
-                  this.hyperTrack.createAndAssignAction('delivery', order['id_sale'], order['street'] + ',' + order['num'], order['position_maps']['x'], order['position_maps']['y'])
+                  this.hyperTrack.createAndAssignAction('dropoff', order['id_sale'], order['street'] + ',' + order['num'], order['position_maps']['x'], order['position_maps']['y'])
                     .then(tr => {
                       console.log('beging tack->', tr, order);
                       console.log('userID-> ', userId, usertrack);
