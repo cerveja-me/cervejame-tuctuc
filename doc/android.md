@@ -14,7 +14,7 @@ jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore doc/cervejametu
 ### signed apk
 
 ```
-zipalign -v 4 platforms/android/build/outputs/apk/release/android-release-unsigned.apk cervejame-tuc.apk
+rm -rf cervejame-tuc.apk && zipalign -v 4 platforms/android/build/outputs/apk/release/android-release-unsigned.apk cervejame-tuc.apk
 ```
 
 ##data used to generate key
