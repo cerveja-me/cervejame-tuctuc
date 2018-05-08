@@ -27,7 +27,7 @@
         "@ionic-native/file": "^4.4.2",
         "@ionic-native/file-transfer": "^4.4.2",
         "@ionic-native/google-maps": "^4.4.2",
-        "@ionic-native/hyper-track": "^4.5.2",
+        "@ionic-native/hyper-track": "^4.7.0",
         "@ionic-native/keyboard": "^4.4.2",
         "@ionic-native/launch-navigator": "^4.4.2",
         "@ionic-native/onesignal": "^4.4.2",
