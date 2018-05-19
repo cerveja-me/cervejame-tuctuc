@@ -6,7 +6,7 @@ import { Platform } from 'ionic-angular';
 //providers
 import { NetworkProvider } from '../network/network';
 import { DeviceProvider } from '../device/device';
-import { HyperTrack } from '@ionic-native/hyper-track';
+// import { HyperTrack } from '@ionic-native/hyper-track';
 
 @Injectable()
 export class UserProvider {
@@ -14,7 +14,7 @@ export class UserProvider {
     private network: NetworkProvider,
     private device: DeviceProvider,
     private storage: Storage,
-    private hyperTrack: HyperTrack,
+    // private hyperTrack: HyperTrack,
     private platform: Platform
   ) {
     this.startHyperTrack();
@@ -84,38 +84,38 @@ export class UserProvider {
   createOrGetHyperTrack() {
     this.getUserDetails()
       .then(user => {
-        this.hyperTrack.getOrCreateUser(user['name'], user['phone'], 'https://cerveja.me/img/mobile/driver/' + user['photo'], user['id'])
-          .then(htUser => {
-            this.hyperTrack.startTracking().then(userId => {
-              console.log('userID-> ', userId);
-            }, trackingError => {
-              console.log('userID-> ', trackingError);
-            });
+        // this.hyperTrack.getOrCreateUser(user['name'], user['phone'], 'https://cerveja.me/img/mobile/driver/' + user['photo'], user['id'])
+        //   .then(htUser => {
+        //     this.hyperTrack.startTracking().then(userId => {
+        //       console.log('userID-> ', userId);
+        //     }, trackingError => {
+        //       console.log('userID-> ', trackingError);
+        //     });
 
-            this.hyperTrack.getCurrentLocation().then(location => {
-              console.log('location ht->', location);
-              // Handle location. It's a String representation of a Location's JSON.For example:
-              // '{"mAccuracy":22.601,,"mLatitude":23.123456, "mLongitude":-100.1234567, ...}'
-            }, error => { });
+        //     this.hyperTrack.getCurrentLocation().then(location => {
+        //       console.log('location ht->', location);
+        //       // Handle location. It's a String representation of a Location's JSON.For example:
+        //       // '{"mAccuracy":22.601,,"mLatitude":23.123456, "mLongitude":-100.1234567, ...}'
+        //     }, error => { });
 
-          })
+        //   })
       })
 
   }
   startHyperTrack() {
     this.platform.ready().then(() => {
       // Check if app has location services enabled
-      this.hyperTrack.checkLocationServices().then(response => {
-        // response (String) can be "true" or "false"
-        if (response != "true") {
-          // Request services to be enabled
-          this.hyperTrack.requestLocationServices().then(response => {
-            this.startHyperTrack();
-          }, error => { });
-        } else {
-          this.createOrGetHyperTrack();
-        }
-      }, error => { });
+      // this.hyperTrack.checkLocationServices().then(response => {
+      //   // response (String) can be "true" or "false"
+      //   if (response != "true") {
+      //     // Request services to be enabled
+      //     this.hyperTrack.requestLocationServices().then(response => {
+      //       this.startHyperTrack();
+      //     }, error => { });
+      //   } else {
+      //     this.createOrGetHyperTrack();
+      //   }
+      // }, error => { });
     })
   }
 
@@ -123,29 +123,29 @@ export class UserProvider {
   createHyperTrackOrder(order) {
     this.getUserDetails()
       .then(user => {
-        this.hyperTrack.getOrCreateUser(user['name'], user['phone'], 'https://cerveja.me/img/mobile/driver/' + user['photo'], user['id'])
-          .then(htUser => {
-            let htu = JSON.parse(htUser);
-            this.hyperTrack.setUserId(htu.id)
-              .then(usertrack => {
-                this.hyperTrack.startTracking().then(userId => {
-                  this.hyperTrack.createAndAssignAction('dropoff', order['id_sale'], order['street'] + ',' + order['num'], order['position_maps']['x'], order['position_maps']['y'])
-                    .then(tr => {
-                      console.log('beging tack->', tr, order);
-                      console.log('userID-> ', userId, usertrack);
-                    }, trackingError => {
-                      console.log('userID-> ', trackingError);
-                    });
-                })
-              })
-          })
+        // this.hyperTrack.getOrCreateUser(user['name'], user['phone'], 'https://cerveja.me/img/mobile/driver/' + user['photo'], user['id'])
+        //   .then(htUser => {
+        //     let htu = JSON.parse(htUser);
+        //     this.hyperTrack.setUserId(htu.id)
+        //       .then(usertrack => {
+        //         this.hyperTrack.startTracking().then(userId => {
+        //           this.hyperTrack.createAndAssignAction('dropoff', order['id_sale'], order['street'] + ',' + order['num'], order['position_maps']['x'], order['position_maps']['y'])
+        //             .then(tr => {
+        //               console.log('beging tack->', tr, order);
+        //               console.log('userID-> ', userId, usertrack);
+        //             }, trackingError => {
+        //               console.log('userID-> ', trackingError);
+        //             });
+        //         })
+        //       })
+        //   })
       })
   }
 
   finishHyperTrackOrder(order) {
-    this.hyperTrack.completeActionWithLookupId(order)
-      .then(tr => {
-        console.log('finish tack->', tr, order);
-      })
+    // this.hyperTrack.completeActionWithLookupId(order)
+    //   .then(tr => {
+    //     console.log('finish tack->', tr, order);
+    //   })
   }
 }

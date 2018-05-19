@@ -1,0 +1,77 @@
+<ion-header class="header-dark">
+
+  <ion-navbar>
+
+  </ion-navbar>
+  <!-- <figure class="card__user__photo"></figure> -->
+  <h2 *ngIf="ord" [ngClass]="ord.cardstatus">
+    <span class="icon-clock"></span>{{ord.elapsed}} min</h2>
+</ion-header>
+
+<ion-content >
+<div class="card" *ngIf="ord">
+
+  <div class="card__details"  *ngFor="let p of ord.products">
+
+    <span class="card__info__order" >
+
+      <span>
+        <figure class="card__info__image">
+            <img-loader [src]="'https://cerveja.me/img/mobile/'+ord.img"></img-loader>
+          </figure>
+        {{p.amount}} caixas
+        <small>{{p.name}}</small>
+      </span>
+    </span>
+
+    <span class="total__pricebox" >
+      <span class="total__pricebox--currency"></span>R$ {{p.price}}
+      <!-- <span class="icon-arrow"></span> -->
+    </span>
+
+  </div>
+<div class="card__details" >
+
+  <span class="card__info__order">
+
+    <span>
+      <figure class="card__info__image">
+        <img src="assets/icon-boy.png" />
+      </figure>
+      Taxa
+    <small>Entrega</small>
+
+    </span>
+  </span>
+
+  <span class="total__pricebox" >
+    <span class="total__pricebox--currency"></span>R$ {{ord.freight_value}}
+    <!-- <small>{{ord.payment_type==1?'dinheiro':'cartão'}}</small> -->
+    <!-- <span class="icon-arrow"></span> -->
+  </span>
+
+</div>
+<!-- Valor Total -->
+<div class="card__details">
+
+  <span class="card__info__order">
+
+    <span>
+      <figure class="card__info__image">
+        <img src="assets/icone_cerveja.png" />
+      </figure>
+      TOTAL
+    </span>
+  </span>
+
+  <span class="total__pricebox">
+    <span class="total__pricebox--currency"></span>R$ {{ord.payment_value}}
+    <!-- <small>{{ord.payment_type==1?'dinheiro':'cartão'}}</small> -->
+    <!-- <span class="icon-arrow"></span> -->
+  </span>
+
+</div>
+
+</div>
+
+</ion-content>

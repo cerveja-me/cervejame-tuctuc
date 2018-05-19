@@ -20,7 +20,7 @@ export class OrderProvider {
   ) {
     this.platform.ready().then(() => {
       this.prepareBackground();
-      this.user.createOrGetHyperTrack();
+      // this.user.createOrGetHyperTrack();
 
     })
   }
@@ -54,7 +54,7 @@ export class OrderProvider {
       id_sale: o.id_sale,
       action: 2
     }
-    this.user.createHyperTrackOrder(o);
+    // this.user.createHyperTrackOrder(o);
     return this.createAction(a);
   }
 
@@ -68,7 +68,7 @@ export class OrderProvider {
 
   finishOrder(sale, rate, comment) {
     return new Promise((resolve, reject) => {
-      this.user.finishHyperTrackOrder(sale);
+      // this.user.finishHyperTrackOrder(sale);
       const a = {
         id_sale: sale,
         action: 4
@@ -148,7 +148,7 @@ export class OrderProvider {
   //  });
   }
 
-  
+
 
   convertOrder(a) {
     a.minutes = Math.round(a.tempo);
@@ -172,18 +172,18 @@ export class OrderProvider {
     return a;
   }
 
-  
+
               // this.user.hyperTrack.createAndAssignAction('delivery',data.sale,o.address.split(', complemento')[0],o.lat,o.lng);
 
 
-  
+
 
 
               // this.user.hyperTrack.completeActionWithLookupId(id)
               //   .then(result => {
               //     console.log('completing action->', result);
               //   })
-              
+
 
 
 

@@ -47,7 +47,7 @@ export class DeviceProvider {
       var d = {
         id:'',
         push_token: push ||'empty',
-        app_version: '1.3',
+        app_version: '1.4',
         app_name: 2,
         app_os: this.device.platform,
         phone_model: this.device.platform,

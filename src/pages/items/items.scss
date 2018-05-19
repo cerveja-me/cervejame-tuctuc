@@ -1,0 +1,334 @@
+page-items {
+  .card {
+    border-radius: 0;
+    padding-bottom: 0;
+    &:first-of-type {
+      margin: 0;
+      transform: none;
+    }
+    &__info {
+      padding: 15px 0;
+      border-bottom: 1px solid #ddd;
+      &__order {
+        width: 50%;
+      }
+    }
+    &__details {
+      border-bottom: none;
+      padding: 15px;
+    }
+    &__status {
+      right: 15px;
+      bottom: 5px;
+      top: auto;
+    }
+    &__user {
+      text-align: center;
+      width: 100%;
+      &__photo {
+        @include border-radius(50%);
+        width: 62px;
+        height: 62px;
+        border: 2px solid $color-secondary;
+        overflow: hidden;
+        background: #eee;
+        position: absolute;
+        bottom: -43px;
+        left: 50%;
+        margin-left: -31px;
+        img-loader {
+          position: relative;
+          z-index: 2;
+        }
+        &:after {
+          content: '';
+          position: absolute;
+          top: 50%;
+          right: 50%;
+          margin-right: -18px;
+          margin-top: -4px;
+          background-image: url(../assets/icon/icon-profile.svg);
+          background-size: cover;
+          width: 36px;
+          height: 34px;
+          display: inline-block;
+          z-index: 1;
+        }
+      }
+      &__info {
+        width: 37%;
+        vertical-align: bottom;
+        display: inline-block;
+        margin-bottom: 4px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+    &__payment {
+      @extend .font-regular;
+      text-align: center;
+      width: 45%;
+      font-size: 13px;
+    }
+  }
+}
+
+.btn-call {
+  @include border-radius(10px);
+  background: $color-success;
+  padding: 10px 10px;
+  display: inline-block;
+  vertical-align: middle;
+  width: 30%;
+  border: 2px solid $color-secondary;
+}
+
+.btn-message {
+  @include border-radius(10px);
+  @extend .font-bold;
+  border: 2px solid $color-secondary;
+  color: $color-secondary;
+  padding: 13.5px 10px;
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 13px;
+  width: 30%;
+  background: white;
+}
+
+.btn-disabled {
+  opacity: 0.2;
+}
+
+.icon-phone {
+  background-image: url(../assets/icon/icon-phone.svg);
+  background-size: cover;
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.icon-clock {
+  background-image: url(../assets/icon/icon-clock.svg);
+  background-size: cover;
+  width: 17px;
+  height: 17px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 8px;
+}
+
+.footer-button {
+  @extend .font-bold;
+  background: white;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 20px;
+}
+
+@keyframes btn-popup {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.4);
+  }
+  0% {
+    transform: scale(1);
+  }
+}
+
+.button-go {
+  @extend .font-bold;
+  background: #83DD7F;
+  border-radius: 10px;
+  color: #563316;
+  border: 2px dotted #563316;
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 24px;
+  width: 30%;
+  padding: 37px 0;
+  text-transform: uppercase;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 100%;
+  &.finish-icon {
+    color: white;
+    background: #D84040;
+    border-style: solid;
+    animation: btn-popup 0.3s ease-out 0s 1 normal;
+    animation-fill-mode: both;
+    &:after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      right: 50%;
+      margin-right: -13px;
+      margin-top: -15px;
+      background-image: url(../assets/icon/icon-finish.svg);
+      background-size: cover;
+      width: 26px;
+      height: 30px;
+      display: inline-block;
+    }
+  }
+  &:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    margin-right: -15px;
+    margin-top: -17px;
+    background-image: url(../assets/icon/icon-go.svg);
+    background-size: cover;
+    width: 30px;
+    height: 34px;
+    display: inline-block;
+  }
+}
+
+.map {
+  /*background: yellow;*/
+  position: relative;
+  height: 95%;
+  z-index: -1;
+}
+
+.map__address {
+  @extend .font-bold;
+  position: absolute;
+  margin: 0;
+  font-size: 14px;
+  width: 100%;
+  text-align: center;
+  padding: 10px 20px;
+  color: white;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 2;
+}
+
+.total__pricebox {
+  @extend .font-bold;
+  border-radius: 10px;
+  font-size: 18px;
+  color: #583318;
+  padding: 0 10px;
+  display: inline-block;
+  vertical-align: middle;
+  width: 45%;
+  text-align: center;
+  position: relative;
+  &--currency {
+    @extend .font-regular;
+    font-size: 15px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 5px;
+  }
+  .icon-arrow {
+    position: absolute;
+    top: 8px;
+    right: 0;
+  }
+  small {
+    @extend .font-regular;
+    font-size: 13px;
+    display: block;
+  }
+}
+
+ion-footer {
+  padding: 15px;
+}
+
+// #map:after {
+//     transition: all 0.1s;
+//     width: 59px;
+//     height: 66px;
+//     display: block;
+//     content: ' ';
+//     position: absolute;
+//     top: 50%; left: 50%;
+//     margin: -76px 0 0 -30.5px;
+//     background: url(../assets/icon/map-pin.svg);
+//     background-size: contain;
+//     pointer-events: none; /* This disables clicks on the marker. Not fully supported by all major browsers, though */
+// }
+//
+// #map:before {
+//     width: 7px;
+//     height: 13px;
+//     display: block;
+//     content: ' ';
+//     position: absolute;
+//     top: 50%; left: 50%;
+//     margin: -12px 0 0 -4.5px;
+//     background: url(../assets/icon/icon-pin-after.svg);
+//     background-size: contain;
+//     pointer-events: none;
+//     z-index: 2;
+// }
+.address {
+  @include border-radius(10px);
+  box-shadow: 0px 5px 6px rgba(0, 0, 0, 0.3);
+  padding: 15px;
+  background: white;
+  overflow: hidden;
+}
+
+.address-box {
+  position: relative;
+  min-height: 77px;
+  &__text {
+    @extend .font-regular;
+    font-size: 13px;
+    display: inline-block;
+    color: $color-secondary;
+    width: 65%;
+    margin: 0 0 15px;
+  }
+  &__status {
+    @extend .font-bold;
+    font-size: 13px;
+    display: block;
+    background: $color-success;
+    color: $color-secondary;
+    margin: -15px -15px 15px;
+    padding: 8px;
+    text-align: center;
+  }
+}
+
+.button-route {
+  @include border-radius(10px);
+  @extend .font-regular;
+  background: #eee;
+  font-size: 13px;
+  text-transform: uppercase;
+  padding: 7px 15px;
+  color: $color-secondary;
+}
+
+.icon-route {
+  background-image: url(../assets/icon/icon-route.svg);
+  background-size: cover;
+  width: 22px;
+  height: 19px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
+.icon-arrow {
+  background-image: url(../assets/icon/icon-arrow.svg);
+  background-size: cover;
+  width: 11px;
+  height: 20px;
+  display: inline-block;
+}
+

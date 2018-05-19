@@ -10,6 +10,7 @@ import { DeviceProvider } from '../../providers/device/device';
 
 import { FeedbackPage } from '../feedback/feedback';
 import { ModalChangePage } from '../modal-change/modal-change';
+import { ItemsPage } from '../items/items';
 
 @Component({
   selector: 'page-details',
@@ -42,7 +43,7 @@ export class DetailsPage {
     } else {
       this.ord.btselect = 'entregar';
     }
-    
+
     if (this.ord.elapsed > 45) {
       this.ord.cardstatus = 'card__status critical';
     } else if (this.ord.elapsed  > 25) {
@@ -55,6 +56,10 @@ export class DetailsPage {
 
   openChangeInformation() {
     this.navCtrl.push(ModalChangePage, { order: this.ord });
+  }
+
+  openItems() {
+    this.navCtrl.push(ItemsPage, { order: this.ord });
   }
 
   loadMap() {

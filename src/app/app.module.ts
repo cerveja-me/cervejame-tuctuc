@@ -13,7 +13,7 @@ import { IonicStorageModule } from '@ionic/storage';
 import { AppVersion } from '@ionic-native/app-version';
 import { Vibration } from '@ionic-native/vibration';
 // import { NativeRingtones } from '@ionic-native/native-ringtones';
-import { HyperTrack } from '@ionic-native/hyper-track';
+// import { HyperTrack } from '@ionic-native/hyper-track';
 import { Keyboard } from '@ionic-native/keyboard';
 import { CallNumber } from '@ionic-native/call-number';
 import { GoogleMaps, GoogleMap, GoogleMapsEvent, LatLng, CameraPosition, MarkerOptions, Marker} from '@ionic-native/google-maps';
@@ -33,6 +33,7 @@ import { DeviceProvider } from '../providers/device/device';
 import { NetworkProvider } from '../providers/network/network';
 import { OrderProvider } from '../providers/order/order';
 import { ProductsProvider } from '../providers/products/products';
+import { ItemsPage } from '../pages/items/items';
 
 class AppVersionMock extends AppVersion {
   constructor(){super();}
@@ -68,7 +69,8 @@ class SplashScreenMock extends SplashScreen{
     DetailsPage,
     FeedbackPage,
     ProductsPage,
-    ModalChangePage
+    ModalChangePage,
+    ItemsPage
   ],
   imports: [
     HttpClientModule,
@@ -86,6 +88,7 @@ class SplashScreenMock extends SplashScreen{
     FeedbackPage,
     ProductsPage,
     ModalChangePage,
+    ItemsPage
   ],
   providers: [
     AppVersion,
@@ -100,7 +103,7 @@ class SplashScreenMock extends SplashScreen{
     CallNumber,
     // NativeRingtones,
     OneSignal,
-    HyperTrack,
+    // HyperTrack,
     // { provide: AppVersion, useClass: AppVersionMock },
     // { provide: SplashScreen, useClass:SplashScreenMock },
     // { provide: Device, useClass: DeviceMock },
