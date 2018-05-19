@@ -12,12 +12,10 @@
 <div class="card" *ngIf="ord">
 
   <div class="card__details"  *ngFor="let p of ord.products">
-
     <span class="card__info__order" >
-
       <span>
         <figure class="card__info__image">
-            <img-loader [src]="'https://cerveja.me/img/mobile/'+ord.img"></img-loader>
+            <img-loader [src]="'https://cerveja.me/img/mobile/'+p.img"></img-loader>
           </figure>
         {{p.amount}} caixas
         <small>{{p.name}}</small>
